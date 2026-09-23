@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { CountUp } from "@/components/count-up";
 import { Eyebrow } from "@/components/eyebrow";
+import { Reveal } from "@/components/reveal";
 import { network } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +28,7 @@ export function NetworkSection() {
       className="bg-ink scroll-mt-20 text-white lg:scroll-mt-24"
     >
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <Reveal className="mb-10 flex flex-col items-start gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow className="text-brand-bright">{t("eyebrow")}</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading max-w-[620px] font-bold">
@@ -37,9 +38,9 @@ export function NetworkSection() {
           <p className="text-lead-sm leading-text text-fog-soft max-w-[400px] text-pretty">
             {t("intro")}
           </p>
-        </div>
+        </Reveal>
 
-        <dl className="reveal-on-scroll mb-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-white/10 py-5 lg:mb-12">
+        <Reveal as="dl" className="mb-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-white/10 py-5 lg:mb-12">
           {summary.map((entry) => (
             <div key={entry.key}>
               <dt className="sr-only">{t(`summary.${entry.key}`)}</dt>
@@ -54,7 +55,7 @@ export function NetworkSection() {
               </dd>
             </div>
           ))}
-        </dl>
+        </Reveal>
 
         {/* Five cells, two columns from `sm`, so the last one takes the spare
             row to itself rather than leaving a bare slot showing through the
@@ -64,7 +65,7 @@ export function NetworkSection() {
             are the grid's own background showing through the gaps, so fading
             the cells individually would flash that pale background through
             every card on the way in. */}
-        <ul className="reveal-on-scroll grid grid-cols-1 gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+        <Reveal as="ul" className="grid grid-cols-1 gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
           {network.map((location) => (
             <li
               key={location.id}
@@ -91,7 +92,7 @@ export function NetworkSection() {
               </p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   );

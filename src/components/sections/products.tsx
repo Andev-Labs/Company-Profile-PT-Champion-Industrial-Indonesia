@@ -3,9 +3,8 @@ import { useTranslations } from "next-intl";
 import { Arrow } from "@/components/arrow";
 import { Eyebrow } from "@/components/eyebrow";
 import { PhotoFrame } from "@/components/photo-frame";
+import { Reveal } from "@/components/reveal";
 import { products, services } from "@/lib/content";
-import { revealLag } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 export function ProductsSection() {
   const t = useTranslations("Products");
@@ -13,7 +12,7 @@ export function ProductsSection() {
   return (
     <section id="produk" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <Reveal className="mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading text-ink font-bold">
@@ -26,13 +25,15 @@ export function ProductsSection() {
           >
             {t("cta")} <Arrow />
           </a>
-        </div>
+        </Reveal>
 
         <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
           {products.map((product, index) => (
-            <li
+            <Reveal
+              as="li"
               key={product.id}
-              className={cn("group reveal-on-scroll", revealLag(index))}
+              index={index}
+              className="group"
             >
               <div className="bg-mist relative mb-5.5 h-62.5">
                 <PhotoFrame
@@ -47,11 +48,11 @@ export function ProductsSection() {
               <p className="text-body leading-body text-slate-soft text-pretty">
                 {t(`items.${product.id}.desc`)}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ul>
 
-        <ul className="reveal-on-scroll bg-line border-line mt-14 grid grid-cols-1 gap-px border sm:grid-cols-2 lg:mt-18 lg:grid-cols-4">
+        <Reveal as="ul" className="bg-line border-line mt-14 grid grid-cols-1 gap-px border sm:grid-cols-2 lg:mt-18 lg:grid-cols-4">
           {services.map((no) => (
             <li
               key={no}
@@ -68,7 +69,7 @@ export function ProductsSection() {
               </p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   );

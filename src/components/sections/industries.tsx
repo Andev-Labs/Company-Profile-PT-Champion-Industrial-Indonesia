@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Eyebrow } from "@/components/eyebrow";
+import { Reveal } from "@/components/reveal";
 import { industries } from "@/lib/content";
 
 export function IndustriesSection() {
@@ -9,14 +10,14 @@ export function IndustriesSection() {
   return (
     <section id="industri" className="bg-mist border-line scroll-mt-20 border-y lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="reveal-on-scroll mb-10 max-w-[700px] lg:mb-14">
+        <Reveal className="mb-10 max-w-[700px] lg:mb-14">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink font-bold">
             {t("title")}
           </h2>
-        </div>
+        </Reveal>
 
-        <ul className="reveal-on-scroll bg-line border-line grid grid-cols-1 gap-px border sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal as="ul" className="bg-line border-line grid grid-cols-1 gap-px border sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((no) => (
             <li
               key={no}
@@ -33,7 +34,7 @@ export function IndustriesSection() {
               </p>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </div>
     </section>
   );

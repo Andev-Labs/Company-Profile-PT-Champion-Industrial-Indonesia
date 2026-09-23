@@ -2,9 +2,8 @@ import { useTranslations } from "next-intl";
 
 import { Arrow } from "@/components/arrow";
 import { Eyebrow } from "@/components/eyebrow";
+import { Reveal } from "@/components/reveal";
 import { reasons } from "@/lib/content";
-import { revealLag } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 export function AdvantagesSection() {
   const t = useTranslations("Advantages");
@@ -12,7 +11,7 @@ export function AdvantagesSection() {
   return (
     <section id="keunggulan" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
-        <div className="reveal-on-scroll">
+        <Reveal>
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-6.5 font-bold">
             {t("title")}
@@ -26,13 +25,15 @@ export function AdvantagesSection() {
           >
             {t("cta")} <Arrow />
           </a>
-        </div>
+        </Reveal>
 
         <ul className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-2 lg:gap-y-8.5">
           {reasons.map((no, index) => (
-            <li
+            <Reveal
+              as="li"
               key={no}
-              className={cn("reveal-on-scroll flex gap-4.5", revealLag(index))}
+              index={index}
+              className="flex gap-4.5"
             >
               <span
                 aria-hidden="true"
@@ -48,7 +49,7 @@ export function AdvantagesSection() {
                   {t(`reasons.${no}.desc`)}
                 </p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

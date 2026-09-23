@@ -8,8 +8,14 @@ import { site } from "@/lib/site";
 export function HeroSection() {
   const t = useTranslations("Hero");
 
+  // The header is out of the flow and floats over this section, so the hero
+  // opens the page by carrying the bar's height itself. The design's own top
+  // padding sits below that, untouched.
   return (
-    <section id="atas" className="bg-ink relative overflow-hidden text-white">
+    <section
+      id="atas"
+      className="bg-ink pt-nav lg:pt-nav-lg relative overflow-hidden text-white"
+    >
       <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-24">
         <div className="reveal-in">
           <p className="text-eyebrow tracking-label text-line-soft mb-7 inline-flex items-center gap-3 border border-white/20 px-4 py-2.25 font-semibold lg:mb-8.5">

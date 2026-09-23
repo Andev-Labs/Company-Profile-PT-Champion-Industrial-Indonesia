@@ -4,6 +4,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* The header floats over the hero, so every piece of its chrome carries two
+ * colour treatments: the light-on-dark one it wears against the hero, and the
+ * dark-on-white one it switches to once the page scrolls past it. The bar sets
+ * `data-nav-solid` on itself at that point; this variant is how the chrome
+ * inside reads it, so the second treatment is a prefix on the class it
+ * overrides rather than a branch in the markup. */
+@custom-variant nav-solid (&:is([data-nav-solid], [data-nav-solid] *));
+
 /* ---------------------------------------------------------------------------
  * Champion Industrial design tokens.
  * Transcribed 1:1 from the approved HTML mockup (ANDEV-124) so that no raw hex
@@ -94,6 +102,15 @@
   /* Layout widths */
   --container-shell: 1280px;
   --container-desk: 1180px;
+
+  /* Height of the header bar. Now that the bar is taken out of the flow and
+   * floated over the hero, two other measurements are derived from it — the
+   * top inset the hero opens with in the bar's place, and the height budget
+   * the mobile menu panel has left under it — so it is a token rather than the
+   * same 4rem written in three places. (In-page anchors are already cleared by
+   * the `scroll-mt-*` each section carries.) */
+  --spacing-nav: 4rem;
+  --spacing-nav-lg: 5.25rem;
 }
 
 @theme inline {

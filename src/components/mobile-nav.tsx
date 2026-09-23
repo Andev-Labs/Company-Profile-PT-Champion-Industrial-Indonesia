@@ -42,7 +42,7 @@ export function MobileNav() {
         aria-controls={panelId}
         aria-label={open ? t("closeMenu") : t("openMenu")}
         onClick={() => setOpen((current) => !current)}
-        className="text-ink hover:text-brand -mr-2.5 inline-flex size-11 flex-none items-center justify-center lg:hidden"
+        className="nav-solid:text-ink nav-solid:hover:text-brand -mr-2.5 inline-flex size-11 flex-none items-center justify-center text-white transition-colors duration-300 hover:text-fog-soft lg:hidden"
       >
         {open ? (
           <X aria-hidden="true" className="size-6" />
@@ -51,12 +51,14 @@ export function MobileNav() {
         )}
       </button>
 
-      {/* Positioned against the sticky header, so the panel hangs below the
-          bar without the bar growing and shifting the page under it. */}
+      {/* Positioned against the fixed header, so the panel hangs below the
+          bar rather than growing it. It takes the bar's two treatments too:
+          opened at the top of the page it continues the hero the transparent
+          bar is sitting on, and opened further down it is the white sheet. */}
       <div
         id={panelId}
         hidden={!open}
-        className="border-line absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b bg-white lg:hidden"
+        className="bg-ink nav-solid:border-line nav-solid:bg-white absolute inset-x-0 top-full max-h-[calc(100dvh-var(--spacing-nav))] overflow-y-auto border-b border-white/10 lg:hidden"
       >
         <nav aria-label={t("mainLabel")} className="px-shell flex flex-col pt-2 pb-6">
           {navItems.map((item) => (
@@ -64,7 +66,7 @@ export function MobileNav() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="text-ink-soft hover:text-brand text-body-lg border-line-soft flex min-h-12 items-center border-b font-medium"
+              className="text-fog-soft nav-solid:text-ink-soft nav-solid:hover:text-brand nav-solid:border-line-soft text-body-lg flex min-h-12 items-center border-b border-white/10 font-medium hover:text-white"
             >
               {t(item.key)}
             </a>
@@ -72,7 +74,7 @@ export function MobileNav() {
           <a
             href="#kontak"
             onClick={() => setOpen(false)}
-            className="bg-brand text-note tracking-hair hover:bg-ink mt-6 inline-flex min-h-12 items-center justify-center gap-2.25 px-5.5 font-semibold text-white hover:text-white"
+            className="bg-brand text-note tracking-hair hover:text-ink nav-solid:hover:bg-ink mt-6 inline-flex min-h-12 items-center justify-center gap-2.25 px-5.5 font-semibold text-white hover:bg-white nav-solid:hover:text-white"
           >
             {t("cta")}
             <Arrow />

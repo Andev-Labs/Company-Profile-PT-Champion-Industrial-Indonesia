@@ -355,7 +355,6 @@
       "saturday": "Saturday",
       "sunday": "Sunday & public holidays"
     },
-    "mapHeading": "FACTORY LOCATION",
     "mapCta": "Open directions in Google Maps",
     "mapTitle": "Map showing the location of {name}"
   },

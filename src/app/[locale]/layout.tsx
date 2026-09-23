@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Instrument_Sans } from "next/font/google";
+import { IBM_Plex_Sans, Saira } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import {
@@ -19,9 +19,17 @@ const ibmPlexSans = IBM_Plex_Sans({
   display: "swap",
 });
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+/**
+ * The display face (ANDEV-132). Saira is a squared-off technical grotesque —
+ * its flat-sided bowls and engineered figures suit a fastener manufacturer in
+ * a way the previous humanist grotesque did not. Loaded as a variable font so
+ * the 400–700 range the headings use costs one file, and pinned to the normal
+ * width so the `wdth` axis cannot drift between browsers.
+ */
+const saira = Saira({
+  variable: "--font-saira",
   subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
@@ -122,7 +130,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={localeMeta[locale].htmlLang}
-      className={`${ibmPlexSans.variable} ${instrumentSans.variable} h-full`}
+      className={`${ibmPlexSans.variable} ${saira.variable} h-full`}
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={clientMessages}>

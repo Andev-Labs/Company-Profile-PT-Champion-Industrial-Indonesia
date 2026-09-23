@@ -14,7 +14,6 @@
   },
   "Nav": {
     "mainLabel": "Main navigation",
-    "footerLabel": "Footer navigation",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close navigation menu",
     "cta": "Contact Us",
@@ -23,14 +22,7 @@
     "products": "Products",
     "technology": "Technology",
     "industries": "Industries",
-    "gallery": "Gallery",
-    "aboutLong": "About Us",
-    "networkLong": "Operations Network",
-    "productsLong": "Products & Services",
-    "technologyLong": "Technology & Process",
-    "industriesLong": "Industries Served",
-    "galleryLong": "Gallery",
-    "contactLong": "Contact"
+    "gallery": "Gallery"
   },
   "Brand": {
     "logoAlt": "CMF logo"
@@ -372,7 +364,6 @@
   },
   "Footer": {
     "tagline": "Fastener and precision hardware manufacturing. Part of an industrial group founded in Hong Kong in 1982.",
-    "pagesHeading": "PAGES",
     "contactHeading": "CONTACT",
     "mapHeading": "LOCATION",
     "mapTitle": "Map showing the location of {name}",

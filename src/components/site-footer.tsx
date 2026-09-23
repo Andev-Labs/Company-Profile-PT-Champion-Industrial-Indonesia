@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 import { Arrow } from "@/components/arrow";
 import { InstagramIcon } from "@/components/instagram-icon";
-import { footerNavItems, site, whatsappDisplay, whatsappUrl } from "@/lib/site";
+import { site, whatsappDisplay, whatsappUrl } from "@/lib/site";
 
 /** Shared heading for every column in the footer's top row. */
 function ColumnHeading({ children }: { children: React.ReactNode }) {
@@ -21,15 +21,17 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
  * channels, the full postal address and the map that locates it. The contact
  * section itself only carries the enquiry form, so these have to be complete
  * here rather than being a teaser for a block further up the page.
+ *
+ * It deliberately carries no section links: this is a single-page site, so a
+ * footer nav would only restate the header that stays pinned to the viewport.
  */
 export function SiteFooter() {
   const t = useTranslations("Footer");
-  const tNav = useTranslations("Nav");
   const tBrand = useTranslations("Brand");
 
   return (
     <footer className="bg-ink text-fog">
-      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)_minmax(0,1.2fr)_minmax(0,1.05fr)] lg:gap-12 lg:pt-16">
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1.05fr)] lg:gap-12 lg:pt-16">
         <div className="sm:col-span-2 lg:col-span-1">
           <Image
             src="/images/logo-cmf.png"
@@ -43,19 +45,6 @@ export function SiteFooter() {
           </p>
           <p className="text-body leading-text max-w-[380px]">{t("tagline")}</p>
         </div>
-
-        <nav aria-label={tNav("footerLabel")}>
-          <ColumnHeading>{t("pagesHeading")}</ColumnHeading>
-          <ul className="text-body flex flex-col gap-3">
-            {footerNavItems.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="text-fog hover:text-white">
-                  {tNav(`${item.key}Long`)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <div>
           <ColumnHeading>{t("contactHeading")}</ColumnHeading>

@@ -1,0 +1,401 @@
+{
+  "Metadata": {
+    "title": "PT Champion Industrial Indonesia — Fastener & Precision Hardware",
+    "description": "PT Champion Industrial Indonesia manufactures fasteners and precision hardware in Tangerang. More than 44 years of group manufacturing experience since Hong Kong 1982, with strict quality control and readiness for high-volume supply.",
+    "keywords": "fastener, precision hardware, industrial bolts and screws, micro screw, custom OEM parts, fastener factory Tangerang"
+  },
+  "Language": {
+    "label": "Language",
+    "en": "English",
+    "id": "Bahasa Indonesia",
+    "enShort": "EN",
+    "idShort": "ID",
+    "switchTo": "Switch to {language}"
+  },
+  "Nav": {
+    "mainLabel": "Main navigation",
+    "footerLabel": "Footer navigation",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "cta": "Contact Us",
+    "about": "About",
+    "network": "Network",
+    "products": "Products",
+    "technology": "Technology",
+    "industries": "Industries",
+    "gallery": "Gallery",
+    "aboutLong": "About Us",
+    "networkLong": "Operations Network",
+    "productsLong": "Products & Services",
+    "technologyLong": "Technology & Process",
+    "industriesLong": "Industries Served",
+    "galleryLong": "Gallery",
+    "contactLong": "Contact"
+  },
+  "Brand": {
+    "logoAlt": "CMF logo"
+  },
+  "Hero": {
+    "badge": "HONG KONG 1982 — INDONESIA 2026",
+    "title": "Fasteners and precision hardware, manufactured in Indonesia.",
+    "subtitle": "More than 44 years of fastener manufacturing experience, now continuing in Tangerang. Import-grade quality with strict quality control and readiness for high-volume supply.",
+    "ctaProducts": "View Products",
+    "ctaQuote": "Request a Quote",
+    "badgeLabel": "YEARS OF EXPERIENCE",
+    "photoAlt": "Production line inside a fastener manufacturing facility",
+    "stats": {
+      "founded": "Founded in Hong Kong",
+      "operating": "Operations begin in Indonesia",
+      "locations": "Operating sites across Asia",
+      "oem": "Custom parts built to spec"
+    }
+  },
+  "Ticker": {
+    "strapline": "PRECISION. QUALITY. GLOBAL CONNECTION.",
+    "furniture": "FURNITURE",
+    "automotive": "AUTOMOTIVE",
+    "construction": "CONSTRUCTION",
+    "electronics": "ELECTRONICS",
+    "machinery": "MACHINERY",
+    "manufacturing": "MANUFACTURING"
+  },
+  "About": {
+    "eyebrow": "ABOUT US",
+    "title": "From a small factory in Hong Kong to an industrial network across Asia.",
+    "paragraph1": "What began as a small factory in Hong Kong in 1982 has grown into an integrated fastener and precision hardware group. After more than 44 years, that journey continues in Indonesia through PT Champion Industrial Indonesia, which starts operating in 2026.",
+    "paragraph2": "The Indonesian facility is part of a strategic move to strengthen production capacity, raise quality, and support fastener demand across Southeast Asia. Indonesia is positioned as one of the region’s new strategic hubs in the fastener supply chain.",
+    "photoAlt": "Factory production floor with marked walkways",
+    "pillars": {
+      "production": {
+        "name": "Production",
+        "desc": "Fastener and precision hardware manufacturing lines"
+      },
+      "rnd": {
+        "name": "R&D",
+        "desc": "Component development to customer specification"
+      },
+      "distribution": {
+        "name": "Distribution",
+        "desc": "High-volume supply for industry across the region"
+      }
+    }
+  },
+  "Journey": {
+    "title": "The Journey Continues",
+    "intro": "Four stages that carried CMF from a single factory in Hong Kong to a facility in Tangerang.",
+    "milestones": {
+      "01": {
+        "year": "1982",
+        "place": "Hong Kong",
+        "desc": "The first factory opens, producing fastener components."
+      },
+      "02": {
+        "year": "CHINA EXPANSION",
+        "place": "Shenzhen & Huizhou",
+        "desc": "Production capacity and R&D grow."
+      },
+      "03": {
+        "year": "ASEAN EXPANSION",
+        "place": "Vietnam",
+        "desc": "The manufacturing and distribution network widens."
+      },
+      "04": {
+        "year": "2026",
+        "place": "Tangerang, Indonesia",
+        "desc": "PT Champion Industrial Indonesia begins operations."
+      }
+    }
+  },
+  "Network": {
+    "eyebrow": "OPERATIONS NETWORK",
+    "title": "Five locations. One integrated network.",
+    "intro": "A single connected industrial ecosystem covering production, R&D, distribution, and customized manufacturing.",
+    "summary": {
+      "locations": "Operating sites",
+      "countries": "Countries",
+      "network": "Integrated network"
+    },
+    "locations": {
+      "hong-kong": {
+        "city": "Hong Kong",
+        "country": "Hong Kong",
+        "detail": "Hong Kong",
+        "role": "The group’s original base since 1982"
+      },
+      "shenzhen": {
+        "city": "Shenzhen",
+        "country": "China",
+        "detail": "China",
+        "role": "Production and development"
+      },
+      "huizhou": {
+        "city": "Huizhou",
+        "country": "China",
+        "detail": "China",
+        "role": "High-volume production"
+      },
+      "vietnam": {
+        "city": "Vietnam",
+        "country": "Vietnam",
+        "detail": "Vietnam",
+        "role": "Manufacturing and distribution"
+      },
+      "indonesia": {
+        "city": "Indonesia",
+        "country": "Indonesia",
+        "detail": "Tangerang, Indonesia",
+        "role": "New facility, operating from 2026"
+      }
+    }
+  },
+  "Products": {
+    "eyebrow": "PRODUCTS & SERVICES",
+    "title": "Small Component. Big Impact.",
+    "cta": "Ask about specifications",
+    "items": {
+      "bolts-screws": {
+        "name": "Industrial Bolts & Screws",
+        "desc": "A full range of types and sizes for assembly and construction work.",
+        "alt": "Industrial bolts and screws in a range of sizes"
+      },
+      "fasteners": {
+        "name": "Fasteners & Precision Hardware",
+        "desc": "Precision fastening components held to tight tolerances.",
+        "alt": "Precision fastener components standing in a row"
+      },
+      "micro-screw": {
+        "name": "Micro Screw",
+        "desc": "Small precision screws — for example PWB 2.6 mm x 15 mm.",
+        "alt": "Close up of a small precision screw against a blue background"
+      },
+      "custom-oem": {
+        "name": "Custom Parts & OEM",
+        "desc": "Manufactured to customer drawings and specifications.",
+        "alt": "A pile of custom screw components from OEM production"
+      }
+    },
+    "services": {
+      "01": {
+        "name": "Fastening Solution",
+        "desc": "Component recommendations matched to customer specifications."
+      },
+      "02": {
+        "name": "Customized Manufacturing",
+        "desc": "OEM and custom parts for specialised requirements."
+      },
+      "03": {
+        "name": "High-Volume Supply",
+        "desc": "Supply readiness for continuous production demand."
+      },
+      "04": {
+        "name": "Consultation & Quotation",
+        "desc": "Technical support, ordering, and price quotations."
+      }
+    }
+  },
+  "Technology": {
+    "eyebrow": "TECHNOLOGY & PROCESS",
+    "title": "Precision comes from a controlled process.",
+    "intro": "Every production stage passes through measurement and testing before a component is cleared for shipping.",
+    "steps": {
+      "01": {
+        "name": "Cold Forming & Thread Rolling",
+        "desc": "Forming and thread rolling for consistent dimensions batch after batch.",
+        "alt": "Production machine forming metal components"
+      },
+      "02": {
+        "name": "Heat Treatment",
+        "desc": "Heat treatment to reach the required hardness and tensile strength.",
+        "alt": "Heat treatment process on metal components"
+      },
+      "03": {
+        "name": "Testing & Measurement",
+        "desc": "Dimensional, torque, and corrosion-resistance checks before components are packed.",
+        "alt": "Component testing and measurement area"
+      }
+    }
+  },
+  "Industries": {
+    "eyebrow": "INDUSTRIES SERVED",
+    "title": "Engineered with Precision. Built for Your Needs.",
+    "items": {
+      "01": {
+        "name": "Furniture",
+        "desc": "Components that combine strength, precision, and reliability for furniture manufacturing."
+      },
+      "02": {
+        "name": "Automotive",
+        "desc": "Components and fastening solutions for automotive work that demands precision and durability."
+      },
+      "03": {
+        "name": "Construction",
+        "desc": "Fastening products that support the demands of construction work."
+      },
+      "04": {
+        "name": "Electronics",
+        "desc": "Screws and small precision components for electronic device assembly."
+      },
+      "05": {
+        "name": "Machinery",
+        "desc": "Fasteners for assembling and maintaining industrial machinery."
+      },
+      "06": {
+        "name": "General Manufacturing",
+        "desc": "Component support across a wide range of production lines."
+      }
+    }
+  },
+  "Advantages": {
+    "eyebrow": "WHY US",
+    "title": "Built for Strength, Made for Progress",
+    "intro": "Domestic production under strict quality control, backed by a global network across five locations.",
+    "cta": "Discuss your requirements",
+    "reasons": {
+      "1": {
+        "name": "Assured quality",
+        "desc": "Quality standards maintained at every stage of production."
+      },
+      "2": {
+        "name": "High precision",
+        "desc": "Tight tolerances for components that demand accuracy."
+      },
+      "3": {
+        "name": "Competitive pricing",
+        "desc": "Local production lowers cost without lowering quality."
+      },
+      "4": {
+        "name": "Ready for volume",
+        "desc": "Capacity for large-scale supply requirements."
+      },
+      "5": {
+        "name": "Trusted partner",
+        "desc": "More than 44 years of group experience in the fastener industry."
+      },
+      "6": {
+        "name": "Made in Indonesia",
+        "desc": "A Tangerang facility with strict quality control."
+      }
+    }
+  },
+  "Quality": {
+    "eyebrow": "QUALITY COMMITMENT",
+    "title": "Standards you can inspect, not just promises.",
+    "intro": "Quality control runs on every line, from incoming material through to packing. Quality documents and test results are available on customer request.",
+    "steps": {
+      "incoming": {
+        "name": "Incoming material",
+        "desc": "Material specifications verified before entering the production line."
+      },
+      "inline": {
+        "name": "In-line inspection",
+        "desc": "Periodic sample checks at every stage of the process."
+      },
+      "traceability": {
+        "name": "Traceability",
+        "desc": "Per-batch test documentation, available on request."
+      }
+    },
+    "certificate": {
+      "title": "QUALITY CERTIFICATE",
+      "subtitle": "QUALITY MANAGEMENT SYSTEM",
+      "footnote": "NUMBER & VALIDITY"
+    },
+    "documentsHeading": "TECHNICAL DOCUMENTS",
+    "documentsCta": "Request documents",
+    "documents": {
+      "certificate": {
+        "name": "Quality certificate",
+        "desc": "The company’s quality management system documentation."
+      },
+      "testReport": {
+        "name": "Test reports",
+        "desc": "Dimensions, torque, and corrosion resistance per production batch."
+      },
+      "material": {
+        "name": "Material specifications",
+        "desc": "Steel grade, heat treatment, and surface finishing."
+      },
+      "drawing": {
+        "name": "Technical drawings",
+        "desc": "Custom component drawings signed off before production starts."
+      }
+    }
+  },
+  "Gallery": {
+    "eyebrow": "GALLERY",
+    "title": "Our facility and products.",
+    "cta": "Schedule a visit",
+    "items": {
+      "1": "Large machine units lined up inside the production facility",
+      "2": "Steel bolts and nuts seen up close",
+      "3": "A large stack of steel screws",
+      "4": "Factory building interior with a steel structure",
+      "5": "Assorted screws and bolts scattered on a bright surface",
+      "6": "Close up of steel bolts and screws with various head types"
+    }
+  },
+  "Campaign": {
+    "title": "Why import?",
+    "body": "Local quality at competitive prices, ready to supply at volume. Back domestic products for Indonesian industry.",
+    "cta": "Request a quote"
+  },
+  "Contact": {
+    "eyebrow": "CONTACT",
+    "title": "Consultation, orders, and price quotations.",
+    "intro": "Tell us what you need — our team will help you settle on the right specification.",
+    "whatsappLabel": "WHATSAPP",
+    "whatsappNote": "Technical questions, sample requests, and price quotations are answered fastest on WhatsApp during working hours.",
+    "instagramLabel": "INSTAGRAM",
+    "addressLabel": "ADDRESS",
+    "hoursLabel": "OPENING HOURS",
+    "timezoneNote": "All times in WIB (GMT+7).",
+    "closed": "Closed",
+    "hours": {
+      "weekdays": "Monday – Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday & public holidays"
+    },
+    "mapHeading": "FACTORY LOCATION",
+    "mapCta": "Open directions in Google Maps",
+    "mapTitle": "Map showing the location of {name}"
+  },
+  "ContactForm": {
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Company name",
+    "needLabel": "Requirement",
+    "detailLabel": "Specification details",
+    "detailPlaceholder": "Size, material, finishing, and estimated quantity",
+    "submit": "Send via WhatsApp",
+    "note": "The message opens in WhatsApp with the details you filled in above.",
+    "needs": {
+      "bolts": "Industrial bolts and screws",
+      "fasteners": "Fasteners and precision hardware",
+      "custom": "Custom parts / OEM",
+      "volume": "High-volume supply",
+      "other": "Other"
+    },
+    "message": {
+      "greeting": "Hello PT Champion Industrial Indonesia,",
+      "name": "Name",
+      "company": "Company",
+      "need": "Requirement",
+      "detail": "Details"
+    }
+  },
+  "Footer": {
+    "tagline": "Fastener and precision hardware manufacturing. Part of an industrial group founded in Hong Kong in 1982.",
+    "pagesHeading": "PAGES",
+    "contactHeading": "CONTACT",
+    "addressLine1": "Kadu Jaya, Curug,",
+    "addressLine2": "Kabupaten Tangerang, Banten",
+    "copyright": "© 2026 {name}"
+  },
+  "NotFound": {
+    "metaTitle": "Page not found",
+    "eyebrow": "ERROR 404",
+    "title": "The page you are looking for could not be found.",
+    "cta": "Back to home"
+  }
+}

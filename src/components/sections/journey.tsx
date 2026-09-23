@@ -1,17 +1,18 @@
+import { useTranslations } from "next-intl";
+
 import { timeline } from "@/lib/content";
 
 export function JourneySection() {
+  const t = useTranslations("Journey");
+
   return (
     <section className="bg-mist border-line border-y">
       <div className="max-w-shell px-shell mx-auto py-16 lg:py-21">
         <div className="mb-10 flex flex-col items-start gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <h2 className="font-display text-subsection leading-heading tracking-heading text-ink font-bold">
-            The Journey Continues
+            {t("title")}
           </h2>
-          <p className="text-field text-slate max-w-[420px]">
-            Empat tahap yang membawa CMF dari satu pabrik di Hong Kong ke
-            fasilitas di Tangerang.
-          </p>
+          <p className="text-field text-slate max-w-[420px]">{t("intro")}</p>
         </div>
 
         {/* The rail turns with the list: horizontal across four columns on the
@@ -48,14 +49,14 @@ export function JourneySection() {
                     {milestone.step}
                   </span>
                   <span className="font-display text-eyebrow tracking-step text-slate font-semibold">
-                    {milestone.year}
+                    {t(`milestones.${milestone.step}.year`)}
                   </span>
                 </p>
                 <h3 className="font-display text-headline leading-heading tracking-title text-ink mb-3 font-bold">
-                  {milestone.place}
+                  {t(`milestones.${milestone.step}.place`)}
                 </h3>
                 <p className="text-body leading-body text-ink-soft text-pretty">
-                  {milestone.desc}
+                  {t(`milestones.${milestone.step}.desc`)}
                 </p>
               </li>
             ))}

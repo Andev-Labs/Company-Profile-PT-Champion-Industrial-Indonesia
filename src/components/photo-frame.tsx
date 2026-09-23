@@ -1,9 +1,11 @@
 import Image from "next/image";
 
-import type { Photo } from "@/lib/content";
+import type { PhotoCredit } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-type PhotoFrameProps = Photo & {
+type PhotoFrameProps = PhotoCredit & {
+  /** Comes from the message catalogue — alt text is copy, so it is translated. */
+  alt: string;
   /** Matches the rendered width of the frame so the browser picks the right file. */
   sizes: string;
   /** Only the LCP image (the hero) should set this. */

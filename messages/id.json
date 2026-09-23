@@ -1,0 +1,401 @@
+{
+  "Metadata": {
+    "title": "PT Champion Industrial Indonesia — Fastener & Precision Hardware",
+    "description": "PT Champion Industrial Indonesia memproduksi fastener dan precision hardware di Tangerang. Lebih dari 44 tahun pengalaman grup manufaktur sejak Hong Kong 1982, dengan kontrol mutu ketat dan kesiapan supply jumlah besar.",
+    "keywords": "fastener, precision hardware, baut dan sekrup industri, micro screw, custom part OEM, pabrik fastener Tangerang"
+  },
+  "Language": {
+    "label": "Bahasa",
+    "en": "English",
+    "id": "Bahasa Indonesia",
+    "enShort": "EN",
+    "idShort": "ID",
+    "switchTo": "Ganti ke {language}"
+  },
+  "Nav": {
+    "mainLabel": "Navigasi utama",
+    "footerLabel": "Navigasi footer",
+    "openMenu": "Buka menu navigasi",
+    "closeMenu": "Tutup menu navigasi",
+    "cta": "Hubungi Kami",
+    "about": "Tentang",
+    "network": "Jaringan",
+    "products": "Produk",
+    "technology": "Teknologi",
+    "industries": "Industri",
+    "gallery": "Galeri",
+    "aboutLong": "Tentang Kami",
+    "networkLong": "Jaringan Operasi",
+    "productsLong": "Produk & Layanan",
+    "technologyLong": "Teknologi & Proses",
+    "industriesLong": "Industri yang Dilayani",
+    "galleryLong": "Galeri",
+    "contactLong": "Kontak"
+  },
+  "Brand": {
+    "logoAlt": "Logo CMF"
+  },
+  "Hero": {
+    "badge": "HONG KONG 1982 — INDONESIA 2026",
+    "title": "Fastener dan precision hardware, diproduksi di Indonesia.",
+    "subtitle": "Lebih dari 44 tahun pengalaman grup manufaktur fastener, kini berlanjut di Tangerang. Kualitas setara produk impor dengan kontrol mutu ketat dan kesiapan supply dalam jumlah besar.",
+    "ctaProducts": "Lihat Produk",
+    "ctaQuote": "Minta Penawaran",
+    "badgeLabel": "TAHUN PENGALAMAN",
+    "photoAlt": "Lini produksi di dalam fasilitas manufaktur fastener",
+    "stats": {
+      "founded": "Berdiri di Hong Kong",
+      "operating": "Mulai beroperasi di Indonesia",
+      "locations": "Lokasi operasi lintas Asia",
+      "oem": "Custom part sesuai spesifikasi"
+    }
+  },
+  "Ticker": {
+    "strapline": "PRECISION. QUALITY. GLOBAL CONNECTION.",
+    "furniture": "FURNITURE",
+    "automotive": "OTOMOTIF",
+    "construction": "KONSTRUKSI",
+    "electronics": "ELEKTRONIK",
+    "machinery": "MESIN",
+    "manufacturing": "MANUFAKTUR"
+  },
+  "About": {
+    "eyebrow": "TENTANG KAMI",
+    "title": "Dari pabrik kecil di Hong Kong ke jaringan industri Asia.",
+    "paragraph1": "Berawal dari sebuah pabrik kecil di Hong Kong pada tahun 1982, perusahaan tumbuh menjadi grup industri fastener dan precision hardware yang terintegrasi. Setelah lebih dari 44 tahun, perjalanan tersebut berlanjut di Indonesia melalui PT Champion Industrial Indonesia yang mulai beroperasi pada tahun 2026.",
+    "paragraph2": "Kehadiran fasilitas di Indonesia merupakan bagian dari langkah strategis untuk memperkuat kapasitas produksi, meningkatkan kualitas, dan mendukung kebutuhan industri fastener di Asia Tenggara. Indonesia diposisikan sebagai salah satu pusat strategis baru dalam rantai pasok fastener kawasan.",
+    "photoAlt": "Area lantai produksi pabrik dengan jalur kerja bertanda",
+    "pillars": {
+      "production": {
+        "name": "Produksi",
+        "desc": "Lini manufaktur fastener dan precision hardware"
+      },
+      "rnd": {
+        "name": "R&D",
+        "desc": "Pengembangan komponen sesuai spesifikasi"
+      },
+      "distribution": {
+        "name": "Distribusi",
+        "desc": "Supply skala besar untuk industri kawasan"
+      }
+    }
+  },
+  "Journey": {
+    "title": "The Journey Continues",
+    "intro": "Empat tahap yang membawa CMF dari satu pabrik di Hong Kong ke fasilitas di Tangerang.",
+    "milestones": {
+      "01": {
+        "year": "1982",
+        "place": "Hong Kong",
+        "desc": "Pabrik pertama berdiri, memproduksi komponen fastener."
+      },
+      "02": {
+        "year": "EKSPANSI TIONGKOK",
+        "place": "Shenzhen & Huizhou",
+        "desc": "Kapasitas produksi dan R&D bertambah."
+      },
+      "03": {
+        "year": "EKSPANSI ASEAN",
+        "place": "Vietnam",
+        "desc": "Jaringan manufaktur dan distribusi meluas."
+      },
+      "04": {
+        "year": "2026",
+        "place": "Tangerang, Indonesia",
+        "desc": "PT Champion Industrial Indonesia mulai beroperasi."
+      }
+    }
+  },
+  "Network": {
+    "eyebrow": "JARINGAN OPERASI",
+    "title": "Lima lokasi. Satu jaringan terintegrasi.",
+    "intro": "Satu ekosistem industri yang terhubung, mencakup produksi, R&D, distribusi, dan customized manufacturing.",
+    "summary": {
+      "locations": "Lokasi operasi",
+      "countries": "Negara",
+      "network": "Jaringan terintegrasi"
+    },
+    "locations": {
+      "hong-kong": {
+        "city": "Hong Kong",
+        "country": "Hong Kong",
+        "detail": "Hong Kong",
+        "role": "Basis awal grup sejak 1982"
+      },
+      "shenzhen": {
+        "city": "Shenzhen",
+        "country": "Tiongkok",
+        "detail": "Tiongkok",
+        "role": "Produksi dan pengembangan"
+      },
+      "huizhou": {
+        "city": "Huizhou",
+        "country": "Tiongkok",
+        "detail": "Tiongkok",
+        "role": "Produksi skala besar"
+      },
+      "vietnam": {
+        "city": "Vietnam",
+        "country": "Vietnam",
+        "detail": "Vietnam",
+        "role": "Manufaktur dan distribusi"
+      },
+      "indonesia": {
+        "city": "Indonesia",
+        "country": "Indonesia",
+        "detail": "Tangerang, Indonesia",
+        "role": "Fasilitas baru, beroperasi 2026"
+      }
+    }
+  },
+  "Products": {
+    "eyebrow": "PRODUK & LAYANAN",
+    "title": "Small Component. Big Impact.",
+    "cta": "Tanya spesifikasi",
+    "items": {
+      "bolts-screws": {
+        "name": "Baut & Sekrup Industri",
+        "desc": "Berbagai tipe dan ukuran untuk kebutuhan perakitan dan konstruksi.",
+        "alt": "Baut dan sekrup industri dalam berbagai ukuran"
+      },
+      "fasteners": {
+        "name": "Fastener & Precision Hardware",
+        "desc": "Komponen pengencang presisi dengan toleransi ketat.",
+        "alt": "Komponen fastener presisi tersusun berdiri"
+      },
+      "micro-screw": {
+        "name": "Micro Screw",
+        "desc": "Sekrup presisi kecil, contoh PWB 2,6 mm x 15 mm.",
+        "alt": "Close up sekrup presisi kecil dengan latar biru"
+      },
+      "custom-oem": {
+        "name": "Custom Part & OEM",
+        "desc": "Diproduksi sesuai gambar dan spesifikasi pelanggan.",
+        "alt": "Tumpukan komponen sekrup custom hasil produksi OEM"
+      }
+    },
+    "services": {
+      "01": {
+        "name": "Fastening Solution",
+        "desc": "Rekomendasi komponen sesuai spesifikasi pelanggan."
+      },
+      "02": {
+        "name": "Customized Manufacturing",
+        "desc": "OEM dan custom part untuk kebutuhan khusus."
+      },
+      "03": {
+        "name": "Supply Jumlah Besar",
+        "desc": "Kesiapan pasokan untuk kebutuhan produksi berkelanjutan."
+      },
+      "04": {
+        "name": "Konsultasi & Penawaran",
+        "desc": "Pendampingan teknis, pemesanan, dan penawaran harga."
+      }
+    }
+  },
+  "Technology": {
+    "eyebrow": "TEKNOLOGI & PROSES",
+    "title": "Presisi datang dari proses yang terkendali.",
+    "intro": "Setiap tahap produksi melewati pengukuran dan pengujian sebelum komponen dinyatakan siap kirim.",
+    "steps": {
+      "01": {
+        "name": "Cold Forming & Thread Rolling",
+        "desc": "Pembentukan dan pembuatan alur ulir untuk konsistensi dimensi antar batch.",
+        "alt": "Mesin produksi pembentuk komponen logam"
+      },
+      "02": {
+        "name": "Heat Treatment",
+        "desc": "Perlakuan panas untuk mencapai kekerasan dan kekuatan tarik yang dipersyaratkan.",
+        "alt": "Proses perlakuan panas pada komponen logam"
+      },
+      "03": {
+        "name": "Pengujian & Pengukuran",
+        "desc": "Pemeriksaan dimensi, torsi, dan ketahanan korosi sebelum komponen dikemas.",
+        "alt": "Area pengujian dan pengukuran komponen"
+      }
+    }
+  },
+  "Industries": {
+    "eyebrow": "INDUSTRI YANG DILAYANI",
+    "title": "Engineered with Precision. Built for Your Needs.",
+    "items": {
+      "01": {
+        "name": "Furniture",
+        "desc": "Komponen yang menggabungkan kekuatan, presisi, dan keandalan untuk proses manufaktur furnitur."
+      },
+      "02": {
+        "name": "Otomotif",
+        "desc": "Komponen dan fastening solution untuk kebutuhan otomotif yang menuntut presisi dan daya tahan."
+      },
+      "03": {
+        "name": "Konstruksi",
+        "desc": "Produk pengencang yang mendukung kebutuhan pekerjaan konstruksi."
+      },
+      "04": {
+        "name": "Elektronik",
+        "desc": "Sekrup dan komponen presisi kecil untuk perakitan perangkat elektronik."
+      },
+      "05": {
+        "name": "Mesin",
+        "desc": "Fastener untuk perakitan dan perawatan permesinan industri."
+      },
+      "06": {
+        "name": "Manufaktur Umum",
+        "desc": "Dukungan komponen untuk berbagai lini produksi manufaktur."
+      }
+    }
+  },
+  "Advantages": {
+    "eyebrow": "KENAPA KAMI",
+    "title": "Built for Strength, Made for Progress",
+    "intro": "Produksi dalam negeri dengan kontrol kualitas ketat, didukung jaringan global lintas lima lokasi.",
+    "cta": "Konsultasi kebutuhan",
+    "reasons": {
+      "1": {
+        "name": "Kualitas terjamin",
+        "desc": "Standar mutu yang dijaga di setiap tahap produksi."
+      },
+      "2": {
+        "name": "Presisi tinggi",
+        "desc": "Toleransi ketat untuk komponen yang menuntut akurasi."
+      },
+      "3": {
+        "name": "Harga kompetitif",
+        "desc": "Produksi lokal menekan biaya tanpa menurunkan mutu."
+      },
+      "4": {
+        "name": "Siap supply besar",
+        "desc": "Kapasitas untuk kebutuhan pasokan dalam jumlah besar."
+      },
+      "5": {
+        "name": "Mitra terpercaya",
+        "desc": "Pengalaman grup lebih dari 44 tahun di industri fastener."
+      },
+      "6": {
+        "name": "Produksi dalam negeri",
+        "desc": "Fasilitas di Tangerang dengan kontrol kualitas ketat."
+      }
+    }
+  },
+  "Quality": {
+    "eyebrow": "KOMITMEN MUTU",
+    "title": "Standar yang bisa diperiksa, bukan sekadar dijanjikan.",
+    "intro": "Kontrol kualitas dijalankan di setiap lini, dari material masuk sampai komponen dikemas. Dokumen mutu dan hasil uji tersedia atas permintaan pelanggan.",
+    "steps": {
+      "incoming": {
+        "name": "Material masuk",
+        "desc": "Verifikasi spesifikasi bahan sebelum masuk lini produksi."
+      },
+      "inline": {
+        "name": "Inspeksi lini",
+        "desc": "Pemeriksaan sampel berkala di setiap tahap proses."
+      },
+      "traceability": {
+        "name": "Rekam jejak",
+        "desc": "Dokumentasi hasil uji per batch, tersedia atas permintaan."
+      }
+    },
+    "certificate": {
+      "title": "SERTIFIKAT MUTU",
+      "subtitle": "SISTEM MANAJEMEN KUALITAS",
+      "footnote": "NOMOR & MASA BERLAKU"
+    },
+    "documentsHeading": "DOKUMEN TEKNIS",
+    "documentsCta": "Minta dokumen",
+    "documents": {
+      "certificate": {
+        "name": "Sertifikat mutu",
+        "desc": "Dokumen sistem manajemen kualitas perusahaan."
+      },
+      "testReport": {
+        "name": "Laporan hasil uji",
+        "desc": "Dimensi, torsi, dan ketahanan korosi per batch produksi."
+      },
+      "material": {
+        "name": "Spesifikasi material",
+        "desc": "Jenis baja, perlakuan panas, dan finishing permukaan."
+      },
+      "drawing": {
+        "name": "Gambar teknik",
+        "desc": "Drawing komponen custom sebelum produksi dimulai."
+      }
+    }
+  },
+  "Gallery": {
+    "eyebrow": "GALERI",
+    "title": "Fasilitas dan produk kami.",
+    "cta": "Jadwalkan kunjungan",
+    "items": {
+      "1": "Unit mesin besar berjajar di dalam fasilitas produksi",
+      "2": "Baut dan mur baja dilihat dari dekat",
+      "3": "Tumpukan sekrup baja dalam jumlah besar",
+      "4": "Interior bangunan pabrik dengan struktur baja",
+      "5": "Berbagai jenis sekrup dan baut tersebar di permukaan terang",
+      "6": "Close up baut dan sekrup baja dengan berbagai kepala"
+    }
+  },
+  "Campaign": {
+    "title": "Buat apa impor?",
+    "body": "Kualitas lokal dengan harga kompetitif, siap supply dalam jumlah besar. Dukung produk dalam negeri untuk industri Indonesia.",
+    "cta": "Minta penawaran"
+  },
+  "Contact": {
+    "eyebrow": "KONTAK",
+    "title": "Konsultasi, pemesanan, dan penawaran harga.",
+    "intro": "Sampaikan kebutuhan komponen Anda — tim kami akan membantu menentukan spesifikasi yang tepat.",
+    "whatsappLabel": "WHATSAPP",
+    "whatsappNote": "Pertanyaan teknis, permintaan sampel, dan penawaran harga dijawab paling cepat lewat WhatsApp pada jam kerja.",
+    "instagramLabel": "INSTAGRAM",
+    "addressLabel": "ALAMAT",
+    "hoursLabel": "JAM OPERASIONAL",
+    "timezoneNote": "Semua waktu dalam WIB (GMT+7).",
+    "closed": "Tutup",
+    "hours": {
+      "weekdays": "Senin – Jumat",
+      "saturday": "Sabtu",
+      "sunday": "Minggu & hari besar"
+    },
+    "mapHeading": "LOKASI PABRIK",
+    "mapCta": "Buka rute di Google Maps",
+    "mapTitle": "Peta lokasi {name}"
+  },
+  "ContactForm": {
+    "nameLabel": "Nama",
+    "namePlaceholder": "Nama Anda",
+    "companyLabel": "Perusahaan",
+    "companyPlaceholder": "Nama perusahaan",
+    "needLabel": "Kebutuhan",
+    "detailLabel": "Detail spesifikasi",
+    "detailPlaceholder": "Ukuran, material, finishing, dan estimasi jumlah",
+    "submit": "Kirim via WhatsApp",
+    "note": "Pesan akan terbuka di WhatsApp dengan detail yang Anda isi di atas.",
+    "needs": {
+      "bolts": "Baut dan sekrup industri",
+      "fasteners": "Fastener dan precision hardware",
+      "custom": "Custom part / OEM",
+      "volume": "Supply jumlah besar",
+      "other": "Lainnya"
+    },
+    "message": {
+      "greeting": "Halo PT Champion Industrial Indonesia,",
+      "name": "Nama",
+      "company": "Perusahaan",
+      "need": "Kebutuhan",
+      "detail": "Detail"
+    }
+  },
+  "Footer": {
+    "tagline": "Manufaktur fastener dan precision hardware. Bagian dari grup industri yang berdiri di Hong Kong sejak 1982.",
+    "pagesHeading": "HALAMAN",
+    "contactHeading": "KONTAK",
+    "addressLine1": "Kadu Jaya, Curug,",
+    "addressLine2": "Kabupaten Tangerang, Banten",
+    "copyright": "© 2026 {name}"
+  },
+  "NotFound": {
+    "metaTitle": "Halaman tidak ditemukan",
+    "eyebrow": "ERROR 404",
+    "title": "Halaman yang Anda cari tidak ditemukan.",
+    "cta": "Kembali ke beranda"
+  }
+}

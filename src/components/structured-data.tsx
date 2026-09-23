@@ -1,14 +1,21 @@
+import { useLocale, useTranslations } from "next-intl";
+
+import { localeMeta, routing } from "@/i18n/routing";
 import { network } from "@/lib/content";
 import { site, siteUrl, whatsappNumber } from "@/lib/site";
 
 /**
  * Organization + LocalBusiness graph for the company profile.
  *
- * Opening hours were held back while the mockup still marked them "menunggu
- * konfirmasi". They were confirmed on ANDEV-127, so they are published here
- * from the same `site.openingHours` rows the contact section prints.
+ * The graph is emitted per locale: the description is the one the page itself
+ * is written in and `inLanguage` names it, so the two language versions do not
+ * both claim to be the same document in the same language. The `@id`s stay
+ * stable across locales on purpose — it is one company, described twice.
  */
 export function OrganizationJsonLd() {
+  const locale = useLocale();
+  const t = useTranslations("Metadata");
+
   const openingHoursSpecification = site.openingHours.map((entry) => ({
     "@type": "OpeningHoursSpecification",
     dayOfWeek: entry.schema.dayOfWeek,
@@ -36,7 +43,7 @@ export function OrganizationJsonLd() {
         url: siteUrl,
         logo: `${siteUrl}/images/logo-cmf.png`,
         image: `${siteUrl}/images/hero-facility.jpg`,
-        description: site.description,
+        description: t("description"),
         slogan: site.slogan,
         foundingDate: "1982",
         address,
@@ -47,7 +54,7 @@ export function OrganizationJsonLd() {
             "@type": "ContactPoint",
             contactType: "sales",
             telephone: `+${whatsappNumber}`,
-            availableLanguage: ["id", "en"],
+            availableLanguage: [...routing.locales],
           },
         ],
       },
@@ -73,7 +80,7 @@ export function OrganizationJsonLd() {
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
         name: site.name,
-        inLanguage: "id-ID",
+        inLanguage: localeMeta[locale].htmlLang,
         publisher: { "@id": `${siteUrl}/#organization` },
       },
     ],

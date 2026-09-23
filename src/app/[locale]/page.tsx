@@ -1,3 +1,9 @@
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+
+import { routing } from "@/i18n/routing";
+
 import { AboutSection } from "@/components/sections/about";
 import { AdvantagesSection } from "@/components/sections/advantages";
 import { CampaignSection } from "@/components/sections/campaign";
@@ -15,7 +21,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { OrganizationJsonLd } from "@/components/structured-data";
 
-export default function HomePage() {
+export default async function HomePage({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+  // Narrows the generated `string` param to a known locale; the layout has
+  // already rejected anything else, so this can only ever pass here.
+  if (!hasLocale(routing.locales, locale)) notFound();
+
+  setRequestLocale(locale);
+
   return (
     <div className="w-full">
       <OrganizationJsonLd />

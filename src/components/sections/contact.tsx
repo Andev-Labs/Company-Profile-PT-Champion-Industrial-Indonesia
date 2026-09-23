@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import { Fragment } from "react";
+import { useTranslations } from "next-intl";
 
 import { Arrow } from "@/components/arrow";
 import { ContactForm } from "@/components/contact-form";
@@ -21,25 +22,24 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 }
 
 export function ContactSection() {
+  const t = useTranslations("Contact");
+
   return (
     <section id="kontak" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
         <div className="mb-10 max-w-[680px] lg:mb-14">
-          <Eyebrow>KONTAK</Eyebrow>
+          <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-5 font-bold">
-            Konsultasi, pemesanan, dan penawaran harga.
+            {t("title")}
           </h2>
-          <p className="text-lead leading-text text-slate-soft">
-            Sampaikan kebutuhan komponen Anda — tim kami akan membantu
-            menentukan spesifikasi yang tepat.
-          </p>
+          <p className="text-lead leading-text text-slate-soft">{t("intro")}</p>
         </div>
 
         <div className="border-line border">
           <div className="bg-line grid grid-cols-1 gap-px lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
             <div className="bg-mist divide-line-mid flex flex-col divide-y px-6 sm:px-11">
               <div className="py-8 sm:py-10">
-                <FieldLabel>WHATSAPP</FieldLabel>
+                <FieldLabel>{t("whatsappLabel")}</FieldLabel>
                 <a
                   href={whatsappUrl}
                   target="_blank"
@@ -53,13 +53,12 @@ export function ContactSection() {
                   {whatsappDisplay}
                 </a>
                 <p className="text-field leading-text text-slate mt-3 max-w-[46ch]">
-                  Pertanyaan teknis, permintaan sampel, dan penawaran harga
-                  dijawab paling cepat lewat WhatsApp pada jam kerja.
+                  {t("whatsappNote")}
                 </p>
               </div>
 
               <div className="py-7 sm:py-8">
-                <FieldLabel>INSTAGRAM</FieldLabel>
+                <FieldLabel>{t("instagramLabel")}</FieldLabel>
                 <a
                   href={site.instagram.url}
                   target="_blank"
@@ -74,7 +73,7 @@ export function ContactSection() {
               {/* The only place the full postal address is printed. The map
                   block below carries the location instead of repeating it. */}
               <div className="py-7 sm:py-8">
-                <FieldLabel>ALAMAT</FieldLabel>
+                <FieldLabel>{t("addressLabel")}</FieldLabel>
                 <address className="text-field leading-text text-ink-soft not-italic">
                   {site.address.lines.map((line, index) => (
                     <Fragment key={line}>
@@ -86,14 +85,14 @@ export function ContactSection() {
               </div>
 
               <div className="py-7 sm:py-8">
-                <FieldLabel>JAM OPERASIONAL</FieldLabel>
+                <FieldLabel>{t("hoursLabel")}</FieldLabel>
                 <dl className="text-field divide-line-mid border-line-mid divide-y border-y">
                   {site.openingHours.map((entry) => (
                     <div
-                      key={entry.days}
+                      key={entry.key}
                       className="flex items-baseline justify-between gap-6 py-2.75"
                     >
-                      <dt className="text-ink-soft">{entry.days}</dt>
+                      <dt className="text-ink-soft">{t(`hours.${entry.key}`)}</dt>
                       <dd
                         className={
                           entry.closed
@@ -101,13 +100,13 @@ export function ContactSection() {
                             : "text-ink font-semibold tabular-nums"
                         }
                       >
-                        {entry.hours}
+                        {entry.hours ?? t("closed")}
                       </dd>
                     </div>
                   ))}
                 </dl>
                 <p className="text-caption leading-copy text-slate mt-3">
-                  {site.timezoneNote}
+                  {t("timezoneNote")}
                 </p>
               </div>
             </div>
@@ -118,7 +117,7 @@ export function ContactSection() {
           <div className="border-line border-t bg-white">
             <div className="border-line flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b px-6 py-4 sm:px-8">
               <h3 className="text-label tracking-label text-slate font-semibold">
-                LOKASI PABRIK
+                {t("mapHeading")}
               </h3>
               <a
                 href={site.mapsUrl}
@@ -126,12 +125,12 @@ export function ContactSection() {
                 rel="noopener noreferrer"
                 className="text-note text-ink hover:text-brand inline-flex items-center gap-2.25 py-1 font-semibold"
               >
-                Buka rute di Google Maps <Arrow />
+                {t("mapCta")} <Arrow />
               </a>
             </div>
             <iframe
               src={site.mapsEmbedUrl}
-              title={`Peta lokasi ${site.name}`}
+              title={t("mapTitle", { name: site.name })}
               loading="lazy"
               allowFullScreen
               referrerPolicy="strict-origin-when-cross-origin"

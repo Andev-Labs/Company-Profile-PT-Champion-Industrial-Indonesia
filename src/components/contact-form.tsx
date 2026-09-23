@@ -1,10 +1,11 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { Arrow } from "@/components/arrow";
-import { contactNeeds } from "@/lib/content";
+import { contactNeeds, type ContactNeed } from "@/lib/content";
 import { buildWhatsappLink } from "@/lib/site";
 
 const fieldClass =
@@ -13,14 +14,31 @@ const fieldClass =
 /**
  * The enquiry never hits our server: the fields are composed into a prefilled
  * WhatsApp message, which is the channel the business actually answers on.
+ *
+ * The state holds the requirement's *key*, not its label, so the selection
+ * survives a language switch and the message that goes out is written in the
+ * language the visitor is reading.
  */
 export function ContactForm() {
+  const t = useTranslations("ContactForm");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
-  const [need, setNeed] = useState<string>(contactNeeds[0]);
+  const [need, setNeed] = useState<ContactNeed>(contactNeeds[0]);
   const [message, setMessage] = useState("");
 
-  const whatsappLink = buildWhatsappLink({ name, company, need, message });
+  const whatsappLink = buildWhatsappLink({
+    labels: {
+      greeting: t("message.greeting"),
+      name: t("message.name"),
+      company: t("message.company"),
+      need: t("message.need"),
+      detail: t("message.detail"),
+    },
+    name,
+    company,
+    need: t(`needs.${need}`),
+    message,
+  });
 
   return (
     // The info column beside this one is the taller of the two on desktop, so
@@ -29,28 +47,30 @@ export function ContactForm() {
     <div className="flex h-full flex-col bg-white px-6 py-9 sm:px-11 sm:py-12">
       <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2">
         <label className="flex flex-col gap-2.25">
-          <span className="text-caption text-ink-soft font-semibold">Nama</span>
+          <span className="text-caption text-ink-soft font-semibold">
+            {t("nameLabel")}
+          </span>
           <input
             type="text"
-            name="nama"
+            name="name"
             autoComplete="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Nama Anda"
+            placeholder={t("namePlaceholder")}
             className={fieldClass}
           />
         </label>
         <label className="flex flex-col gap-2.25">
           <span className="text-caption text-ink-soft font-semibold">
-            Perusahaan
+            {t("companyLabel")}
           </span>
           <input
             type="text"
-            name="perusahaan"
+            name="company"
             autoComplete="organization"
             value={company}
             onChange={(event) => setCompany(event.target.value)}
-            placeholder="Nama perusahaan"
+            placeholder={t("companyPlaceholder")}
             className={fieldClass}
           />
         </label>
@@ -58,17 +78,24 @@ export function ContactForm() {
 
       <label className="mt-5.5 flex flex-col gap-2.25">
         <span className="text-caption text-ink-soft font-semibold">
-          Kebutuhan
+          {t("needLabel")}
         </span>
         <select
-          name="kebutuhan"
+          name="need"
           value={need}
-          onChange={(event) => setNeed(event.target.value)}
+          onChange={(event) => {
+            // Matched against the source list rather than cast, so the state
+            // can only ever hold a key the message catalogue knows about.
+            const selected = contactNeeds.find(
+              (option) => option === event.target.value,
+            );
+            if (selected) setNeed(selected);
+          }}
           className={fieldClass}
         >
           {contactNeeds.map((option) => (
             <option key={option} value={option}>
-              {option}
+              {t(`needs.${option}`)}
             </option>
           ))}
         </select>
@@ -76,14 +103,14 @@ export function ContactForm() {
 
       <label className="mt-5.5 flex flex-1 flex-col gap-2.25">
         <span className="text-caption text-ink-soft font-semibold">
-          Detail spesifikasi
+          {t("detailLabel")}
         </span>
         <textarea
           name="detail"
           rows={5}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          placeholder="Ukuran, material, finishing, dan estimasi jumlah"
+          placeholder={t("detailPlaceholder")}
           className={`${fieldClass} min-h-[9.5rem] flex-1 resize-y`}
         />
       </label>
@@ -95,11 +122,9 @@ export function ContactForm() {
         className="bg-brand text-body-lg hover:bg-ink mt-7 inline-flex w-full items-center justify-center gap-2.5 px-7.5 py-4.5 font-semibold text-white hover:text-white"
       >
         <MessageCircle aria-hidden="true" className="size-5 flex-none" />
-        Kirim via WhatsApp <Arrow />
+        {t("submit")} <Arrow />
       </a>
-      <p className="text-caption leading-copy text-slate mt-4">
-        Pesan akan terbuka di WhatsApp dengan detail yang Anda isi di atas.
-      </p>
+      <p className="text-caption leading-copy text-slate mt-4">{t("note")}</p>
     </div>
   );
 }

@@ -70,10 +70,6 @@ export function QualitySection() {
               <span className="border-line-strong block size-14 flex-none rounded-full border-2 border-dashed" />
             </div>
           </div>
-          <p className="text-caption leading-copy text-slate mt-4 text-center">
-            Contoh tampilan. Scan sertifikat asli dari perusahaan akan
-            menggantikan bagian ini.
-          </p>
         </div>
       </div>
 

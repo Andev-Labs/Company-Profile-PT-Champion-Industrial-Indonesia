@@ -4,11 +4,18 @@ import { site, siteUrl, whatsappNumber } from "@/lib/site";
 /**
  * Organization + LocalBusiness graph for the company profile.
  *
- * Opening hours are intentionally absent: the mockup still marks them
- * "menunggu konfirmasi", and publishing unconfirmed hours to search engines
- * would surface wrong information in the knowledge panel.
+ * Opening hours were held back while the mockup still marked them "menunggu
+ * konfirmasi". They were confirmed on ANDEV-127, so they are published here
+ * from the same `site.openingHours` rows the contact section prints.
  */
 export function OrganizationJsonLd() {
+  const openingHoursSpecification = site.openingHours.map((entry) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: entry.schema.dayOfWeek,
+    opens: entry.schema.opens,
+    closes: entry.schema.closes,
+  }));
+
   const address = {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -53,6 +60,12 @@ export function OrganizationJsonLd() {
         image: `${siteUrl}/images/hero-facility.jpg`,
         telephone: `+${whatsappNumber}`,
         address,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: site.geo.latitude,
+          longitude: site.geo.longitude,
+        },
+        openingHoursSpecification,
         hasMap: site.mapsUrl,
       },
       {

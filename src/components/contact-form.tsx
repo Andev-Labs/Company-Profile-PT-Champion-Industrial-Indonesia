@@ -23,7 +23,10 @@ export function ContactForm() {
   const whatsappLink = buildWhatsappLink({ name, company, need, message });
 
   return (
-    <div className="bg-white px-6 py-9 sm:px-11 sm:py-12">
+    // The info column beside this one is the taller of the two on desktop, so
+    // the detail field is allowed to absorb the difference rather than leaving
+    // the panel ending in a block of empty white.
+    <div className="flex h-full flex-col bg-white px-6 py-9 sm:px-11 sm:py-12">
       <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2">
         <label className="flex flex-col gap-2.25">
           <span className="text-caption text-ink-soft font-semibold">Nama</span>
@@ -71,7 +74,7 @@ export function ContactForm() {
         </select>
       </label>
 
-      <label className="mt-5.5 flex flex-col gap-2.25">
+      <label className="mt-5.5 flex flex-1 flex-col gap-2.25">
         <span className="text-caption text-ink-soft font-semibold">
           Detail spesifikasi
         </span>
@@ -81,7 +84,7 @@ export function ContactForm() {
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           placeholder="Ukuran, material, finishing, dan estimasi jumlah"
-          className={`${fieldClass} resize-y`}
+          className={`${fieldClass} min-h-[9.5rem] flex-1 resize-y`}
         />
       </label>
 

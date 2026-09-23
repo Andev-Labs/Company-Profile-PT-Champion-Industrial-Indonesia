@@ -1,8 +1,13 @@
+import { useTranslations } from "next-intl";
+
 import { Arrow } from "@/components/arrow";
 import { PhotoFrame } from "@/components/photo-frame";
 import { heroPhoto, heroStats } from "@/lib/content";
+import { site } from "@/lib/site";
 
 export function HeroSection() {
+  const t = useTranslations("Hero");
+
   return (
     <section id="atas" className="bg-ink relative overflow-hidden text-white">
       <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-24">
@@ -12,31 +17,29 @@ export function HeroSection() {
               aria-hidden="true"
               className="bg-brand size-1.75 rounded-full"
             />
-            HONG KONG 1982 — INDONESIA 2026
+            {t("badge")}
           </p>
           <h1 className="font-display text-hero leading-hero tracking-display mb-6.5 text-balance">
-            Fastener dan precision hardware, diproduksi di Indonesia.
+            {t("title")}
           </h1>
           <p className="text-subtitle leading-body text-fog-soft mb-5 max-w-[560px] text-pretty">
-            Lebih dari 44 tahun pengalaman grup manufaktur fastener, kini
-            berlanjut di Tangerang. Kualitas setara produk impor dengan kontrol
-            mutu ketat dan kesiapan supply dalam jumlah besar.
+            {t("subtitle")}
           </p>
           <p className="font-display text-body-lg tracking-nudge mb-8 font-semibold text-white lg:mb-10">
-            Stronger Connections. Built to Perform.
+            {site.slogan}
           </p>
           <div className="flex flex-col gap-3.5 pb-12 sm:flex-row sm:items-center sm:gap-4 lg:pb-18">
             <a
               href="#produk"
               className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center justify-center gap-2.5 px-7.5 py-4.25 font-semibold text-white sm:justify-start"
             >
-              Lihat Produk <Arrow />
+              {t("ctaProducts")} <Arrow />
             </a>
             <a
               href="#kontak"
               className="text-cta-sm inline-flex items-center justify-center gap-2.5 border border-white/30 px-7.5 py-4.25 font-semibold text-white hover:border-white hover:bg-white/5 hover:text-white sm:justify-start"
             >
-              Minta Penawaran
+              {t("ctaQuote")}
             </a>
           </div>
         </div>
@@ -44,6 +47,7 @@ export function HeroSection() {
         <div className="reveal-in relative h-72 [animation-delay:0.12s] [animation-duration:1s] sm:h-96 lg:h-130">
           <PhotoFrame
             {...heroPhoto}
+            alt={t("photoAlt")}
             sizes="(min-width: 1024px) 540px, 100vw"
             priority
           />
@@ -54,7 +58,7 @@ export function HeroSection() {
               44+
             </span>
             <span className="text-eyebrow tracking-caps mt-1 block font-semibold">
-              TAHUN PENGALAMAN
+              {t("badgeLabel")}
             </span>
           </p>
         </div>
@@ -67,16 +71,16 @@ export function HeroSection() {
               are two rows, and a column rule everywhere but the last cell. */}
           {heroStats.map((stat) => (
             <div
-              key={stat.value}
+              key={stat.key}
               className="border-white/10 py-7 odd:border-r odd:pr-6 even:pl-6 nth-[-n+2]:border-b sm:border-b-0 sm:px-8 sm:py-8 sm:not-last:border-r sm:first:pl-0 sm:last:pr-0 sm:odd:pr-8 sm:even:pl-8"
             >
-              <dt className="sr-only">{stat.label}</dt>
+              <dt className="sr-only">{t(`stats.${stat.key}`)}</dt>
               <dd>
                 <span className="font-display text-stat-sm block leading-none font-bold text-white">
                   {stat.value}
                 </span>
                 <span className="text-meta text-fog mt-2 block">
-                  {stat.label}
+                  {t(`stats.${stat.key}`)}
                 </span>
               </dd>
             </div>

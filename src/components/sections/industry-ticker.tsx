@@ -1,15 +1,18 @@
 import { Fragment } from "react";
+import { useTranslations } from "next-intl";
 
 import { tickerIndustries } from "@/lib/content";
 
 export function IndustryTicker() {
+  const t = useTranslations("Ticker");
+
   return (
     <div className="bg-mist border-line overflow-hidden border-b">
       {/* One line on the desktop grid; below it the strapline takes its own row
           and the industries wrap underneath rather than being clipped. */}
       <p className="max-w-shell px-shell text-caption tracking-caps text-slate-soft mx-auto flex flex-wrap items-center gap-x-3 gap-y-2 py-4.5 font-semibold lg:flex-nowrap lg:gap-3.5 lg:py-5.5">
         <span className="text-brand basis-full lg:basis-auto">
-          PRECISION. QUALITY. GLOBAL CONNECTION.
+          {t("strapline")}
         </span>
         <span aria-hidden="true" className="bg-line-mid hidden h-px flex-1 lg:block" />
         {tickerIndustries.map((industry, index) => (
@@ -19,7 +22,7 @@ export function IndustryTicker() {
                 /
               </span>
             )}
-            <span>{industry}</span>
+            <span>{t(industry)}</span>
           </Fragment>
         ))}
       </p>

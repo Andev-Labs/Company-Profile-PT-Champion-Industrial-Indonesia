@@ -2,6 +2,11 @@
  * Single source of truth for company-level facts used across metadata,
  * structured data and the page chrome. Values transcribed from the approved
  * mockup (ANDEV-124).
+ *
+ * Facts only — anything a reader reads as a sentence lives in
+ * `messages/<locale>.json`. The opening-hours rows keep the `schema.org`
+ * shape here and carry the message key their day label is printed from, so
+ * the JSON-LD and the visible table can never drift apart.
  */
 
 /**
@@ -19,10 +24,8 @@ export const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 export const site = {
   name: "PT Champion Industrial Indonesia",
   shortName: "Champion Industrial",
+  /** Brand line. Stays English in both languages, by design. */
   slogan: "Stronger Connections. Built to Perform.",
-  description:
-    "PT Champion Industrial Indonesia memproduksi fastener dan precision hardware di Tangerang. Lebih dari 44 tahun pengalaman grup manufaktur sejak Hong Kong 1982, dengan kontrol mutu ketat dan kesiapan supply jumlah besar.",
-  locale: "id_ID",
   instagram: {
     handle: "@champion_industrial_id",
     url: "https://instagram.com/champion_industrial_id",
@@ -38,6 +41,7 @@ export const site = {
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5174.889802697884!2d106.55915311161088!3d-6.213166693748804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ff0070ea9d41%3A0x184d5a02375e62da!2sPT%20CHAMPION%20INDUSTRIAL%20INDONESIA!5e1!3m2!1sen!2sid!4v1790169266226!5m2!1sen!2sid",
   /** Read off the embed above, so the map pin and the knowledge panel agree. */
   geo: { latitude: -6.2131667, longitude: 106.5591531 },
+  /** A postal address is not translated — it has to be writable on an envelope. */
   address: {
     lines: [
       "Komplek Pergudangan & Industri PKT Bitung,",
@@ -52,13 +56,13 @@ export const site = {
     country: "ID",
   },
   /**
-   * Confirmed on ANDEV-127. Each row carries both the label the page prints
-   * and the schema.org shape the JSON-LD needs, so the two can never drift.
+   * Confirmed on ANDEV-127. Each row carries the message key its day label is
+   * printed from and the schema.org shape the JSON-LD needs, so the two can
+   * never drift.
    */
-  timezoneNote: "Semua waktu dalam WIB (GMT+7).",
   openingHours: [
     {
-      days: "Senin – Jumat",
+      key: "weekdays",
       hours: "08.00 – 17.00",
       closed: false,
       schema: {
@@ -68,55 +72,70 @@ export const site = {
       },
     },
     {
-      days: "Sabtu",
+      key: "saturday",
       hours: "08.00 – 13.00",
       closed: false,
       schema: { dayOfWeek: ["Saturday"], opens: "08:00", closes: "13:00" },
     },
     {
-      days: "Minggu & hari besar",
-      hours: "Tutup",
+      key: "sunday",
+      hours: null,
       closed: true,
       schema: { dayOfWeek: ["Sunday"], opens: "00:00", closes: "00:00" },
     },
   ],
 } as const;
 
-export type NavItem = { href: string; label: string };
+export type NavKey =
+  | "about"
+  | "network"
+  | "products"
+  | "technology"
+  | "industries"
+  | "gallery";
 
+export type NavItem = { href: string; key: NavKey };
+
+/**
+ * Section anchors stay as they are: they are stable technical identifiers that
+ * existing links point at, not copy, so they do not change with the language.
+ */
 export const navItems: NavItem[] = [
-  { href: "#tentang", label: "Tentang" },
-  { href: "#jaringan", label: "Jaringan" },
-  { href: "#produk", label: "Produk" },
-  { href: "#teknologi", label: "Teknologi" },
-  { href: "#industri", label: "Industri" },
-  { href: "#galeri", label: "Galeri" },
+  { href: "#tentang", key: "about" },
+  { href: "#jaringan", key: "network" },
+  { href: "#produk", key: "products" },
+  { href: "#teknologi", key: "technology" },
+  { href: "#industri", key: "industries" },
+  { href: "#galeri", key: "gallery" },
 ];
 
-export const footerNavItems: NavItem[] = [
-  { href: "#tentang", label: "Tentang Kami" },
-  { href: "#jaringan", label: "Jaringan Operasi" },
-  { href: "#produk", label: "Produk & Layanan" },
-  { href: "#teknologi", label: "Teknologi & Proses" },
-  { href: "#industri", label: "Industri yang Dilayani" },
-  { href: "#galeri", label: "Galeri" },
-  { href: "#kontak", label: "Kontak" },
+export const footerNavItems: { href: string; key: NavKey | "contact" }[] = [
+  ...navItems,
+  { href: "#kontak", key: "contact" },
 ];
 
 /** Builds the prefilled WhatsApp deep link used by the contact form. */
 export function buildWhatsappLink(input: {
+  labels: {
+    greeting: string;
+    name: string;
+    company: string;
+    need: string;
+    detail: string;
+  };
   name: string;
   company: string;
   need: string;
   message: string;
 }): string {
+  const { labels } = input;
   const body = [
-    "Halo PT Champion Industrial Indonesia,",
+    labels.greeting,
     "",
-    `Nama: ${input.name || "-"}`,
-    `Perusahaan: ${input.company || "-"}`,
-    `Kebutuhan: ${input.need}`,
-    `Detail: ${input.message || "-"}`,
+    `${labels.name}: ${input.name || "-"}`,
+    `${labels.company}: ${input.company || "-"}`,
+    `${labels.need}: ${input.need}`,
+    `${labels.detail}: ${input.message || "-"}`,
   ].join("\n");
 
   return `${whatsappUrl}?text=${encodeURIComponent(body)}`;

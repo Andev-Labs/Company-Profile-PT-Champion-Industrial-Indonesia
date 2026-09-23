@@ -39,7 +39,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       className={cn("flex flex-none items-center gap-1.5 sm:gap-2", className)}
       data-slot="language-switcher"
     >
-      <Globe aria-hidden="true" className="text-slate size-4 flex-none sm:size-4.5" />
+      <Globe
+        aria-hidden="true"
+        className="text-fog nav-solid:text-slate size-4 flex-none transition-colors duration-300 sm:size-4.5"
+      />
       <p className="text-note flex items-center font-semibold">
         <span className="sr-only">{t("label")}: </span>
         {routing.locales.map((locale, index) => {
@@ -48,12 +51,18 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           return (
             <span key={locale} className="flex items-center">
               {index > 0 && (
-                <span aria-hidden="true" className="text-line-strong px-1 sm:px-1.5">
+                <span
+                  aria-hidden="true"
+                  className="nav-solid:text-line-strong px-1 text-white/40 transition-colors duration-300 sm:px-1.5"
+                >
                   /
                 </span>
               )}
               {isActive ? (
-                <span aria-current="true" className="text-ink">
+                <span
+                  aria-current="true"
+                  className="nav-solid:text-ink text-white transition-colors duration-300"
+                >
                   <span className="sr-only">{t(locale)}</span>
                   <span aria-hidden="true">{t(`${locale}Short`)}</span>
                 </span>
@@ -63,7 +72,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   locale={locale}
                   hrefLang={localeMeta[locale].htmlLang}
                   aria-label={t("switchTo", { language: t(locale) })}
-                  className="text-slate hover:text-brand flex min-h-6 min-w-6 items-center justify-center"
+                  className="text-fog-soft nav-solid:text-slate nav-solid:hover:text-brand flex min-h-6 min-w-6 items-center justify-center transition-colors duration-300 hover:text-white"
                 >
                   <span aria-hidden="true">{t(`${locale}Short`)}</span>
                 </Link>

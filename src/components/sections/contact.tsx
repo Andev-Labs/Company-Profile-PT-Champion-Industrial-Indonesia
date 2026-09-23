@@ -71,7 +71,8 @@ export function ContactSection() {
               </div>
 
               {/* The only place the full postal address is printed. The map
-                  block below carries the location instead of repeating it. */}
+                  sits directly under it — small enough to read as a locator
+                  for this field rather than as a section of its own. */}
               <div className="py-7 sm:py-8">
                 <FieldLabel>{t("addressLabel")}</FieldLabel>
                 <address className="text-field leading-text text-ink-soft not-italic">
@@ -82,6 +83,24 @@ export function ContactSection() {
                     </Fragment>
                   ))}
                 </address>
+                <div className="border-line-mid mt-5 max-w-[420px] border bg-white">
+                  <iframe
+                    src={site.mapsEmbedUrl}
+                    title={t("mapTitle", { name: site.name })}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="block h-[180px] w-full sm:h-[200px]"
+                  />
+                </div>
+                <a
+                  href={site.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-note text-ink hover:text-brand mt-3 inline-flex items-center gap-2.25 py-1 font-semibold"
+                >
+                  {t("mapCta")} <Arrow />
+                </a>
               </div>
 
               <div className="py-7 sm:py-8">
@@ -112,30 +131,6 @@ export function ContactSection() {
             </div>
 
             <ContactForm />
-          </div>
-
-          <div className="border-line border-t bg-white">
-            <div className="border-line flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b px-6 py-4 sm:px-8">
-              <h3 className="text-label tracking-label text-slate font-semibold">
-                {t("mapHeading")}
-              </h3>
-              <a
-                href={site.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-note text-ink hover:text-brand inline-flex items-center gap-2.25 py-1 font-semibold"
-              >
-                {t("mapCta")} <Arrow />
-              </a>
-            </div>
-            <iframe
-              src={site.mapsEmbedUrl}
-              title={t("mapTitle", { name: site.name })}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-              className="block h-[320px] w-full sm:h-[400px] lg:h-[440px]"
-            />
           </div>
         </div>
       </div>

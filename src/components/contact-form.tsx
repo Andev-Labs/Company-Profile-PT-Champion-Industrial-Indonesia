@@ -41,10 +41,10 @@ export function ContactForm() {
   });
 
   return (
-    // The info column beside this one is the taller of the two on desktop, so
-    // the detail field is allowed to absorb the difference rather than leaving
-    // the panel ending in a block of empty white.
-    <div className="flex h-full flex-col bg-white px-6 py-9 sm:px-11 sm:py-12">
+    // The form now stands on its own inside the contact section, so the panel
+    // carries the tinted background and the fields stay white — the contrast
+    // is what makes them read as the one thing to act on here.
+    <div className="bg-mist px-6 py-9 sm:px-11 sm:py-12">
       <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2">
         <label className="flex flex-col gap-2.25">
           <span className="text-caption text-ink-soft font-semibold">
@@ -101,7 +101,7 @@ export function ContactForm() {
         </select>
       </label>
 
-      <label className="mt-5.5 flex flex-1 flex-col gap-2.25">
+      <label className="mt-5.5 flex flex-col gap-2.25">
         <span className="text-caption text-ink-soft font-semibold">
           {t("detailLabel")}
         </span>
@@ -111,7 +111,7 @@ export function ContactForm() {
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           placeholder={t("detailPlaceholder")}
-          className={`${fieldClass} min-h-[9.5rem] flex-1 resize-y`}
+          className={`${fieldClass} min-h-[10rem] resize-y`}
         />
       </label>
 

@@ -343,20 +343,7 @@
     "eyebrow": "CONTACT",
     "title": "Consultation, orders, and price quotations.",
     "intro": "Tell us what you need — our team will help you settle on the right specification.",
-    "whatsappLabel": "WHATSAPP",
-    "whatsappNote": "Technical questions, sample requests, and price quotations are answered fastest on WhatsApp during working hours.",
-    "instagramLabel": "INSTAGRAM",
-    "addressLabel": "ADDRESS",
-    "hoursLabel": "OPENING HOURS",
-    "timezoneNote": "All times in WIB (GMT+7).",
-    "closed": "Closed",
-    "hours": {
-      "weekdays": "Monday – Friday",
-      "saturday": "Saturday",
-      "sunday": "Sunday & public holidays"
-    },
-    "mapCta": "Open directions in Google Maps",
-    "mapTitle": "Map showing the location of {name}"
+    "whatsappNote": "Technical questions, sample requests, and price quotations are answered fastest on WhatsApp during working hours."
   },
   "ContactForm": {
     "nameLabel": "Name",
@@ -387,8 +374,15 @@
     "tagline": "Fastener and precision hardware manufacturing. Part of an industrial group founded in Hong Kong in 1982.",
     "pagesHeading": "PAGES",
     "contactHeading": "CONTACT",
-    "addressLine1": "Kadu Jaya, Curug,",
-    "addressLine2": "Kabupaten Tangerang, Banten",
+    "mapCta": "Open directions in Google Maps",
+    "hoursHeading": "OPENING HOURS",
+    "hours": {
+      "weekdays": "Monday – Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday & public holidays"
+    },
+    "closed": "Closed",
+    "timezoneNote": "All times in WIB (GMT+7).",
     "copyright": "© 2026 {name}"
   },
   "NotFound": {

@@ -35,7 +35,9 @@ export const site = {
   /**
    * Embed supplied by the company on ANDEV-127. It is the satellite view
    * centred on the plant, so it stays verbatim rather than being rebuilt from
-   * the coordinates below.
+   * the coordinates below. Nothing renders it since ANDEV-131 stripped the
+   * contact section back to the form — the footer links out to Google Maps
+   * instead — but it is kept here as the company-supplied record.
    */
   mapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5174.889802697884!2d106.55915311161088!3d-6.213166693748804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ff0070ea9d41%3A0x184d5a02375e62da!2sPT%20CHAMPION%20INDUSTRIAL%20INDONESIA!5e1!3m2!1sen!2sid!4v1790169266226!5m2!1sen!2sid",

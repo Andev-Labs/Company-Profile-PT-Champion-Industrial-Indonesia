@@ -1,10 +1,27 @@
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
+import { Fragment } from "react";
 import { useTranslations } from "next-intl";
 
+import { Arrow } from "@/components/arrow";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { footerNavItems, site, whatsappDisplay, whatsappUrl } from "@/lib/site";
 
+/** Shared heading for every column in the footer's top row. */
+function ColumnHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-label tracking-label mb-4.5 font-semibold text-white">
+      {children}
+    </h2>
+  );
+}
+
+/**
+ * The footer is where the company's reference details live (ANDEV-131):
+ * channels, the full postal address and the opening hours. The contact
+ * section itself only carries the enquiry form, so these have to be complete
+ * here rather than being a teaser for a block further up the page.
+ */
 export function SiteFooter() {
   const t = useTranslations("Footer");
   const tNav = useTranslations("Nav");
@@ -12,7 +29,7 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-ink text-fog">
-      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_repeat(2,minmax(0,1fr))] lg:gap-15 lg:pt-16">
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.65fr)_minmax(0,1.3fr)_minmax(0,0.95fr)] lg:gap-12 lg:pt-16">
         <div className="sm:col-span-2 lg:col-span-1">
           <Image
             src="/images/logo-cmf.png"
@@ -28,9 +45,7 @@ export function SiteFooter() {
         </div>
 
         <nav aria-label={tNav("footerLabel")}>
-          <h2 className="text-label tracking-label mb-4.5 font-semibold text-white">
-            {t("pagesHeading")}
-          </h2>
+          <ColumnHeading>{t("pagesHeading")}</ColumnHeading>
           <ul className="text-body flex flex-col gap-3">
             {footerNavItems.map((item) => (
               <li key={item.href}>
@@ -43,9 +58,7 @@ export function SiteFooter() {
         </nav>
 
         <div>
-          <h2 className="text-label tracking-label mb-4.5 font-semibold text-white">
-            {t("contactHeading")}
-          </h2>
+          <ColumnHeading>{t("contactHeading")}</ColumnHeading>
           <ul className="text-body flex flex-col gap-3">
             <li>
               <a
@@ -72,12 +85,50 @@ export function SiteFooter() {
                 {site.instagram.handle}
               </a>
             </li>
-            <li className="leading-text">
-              {t("addressLine1")}
-              <br />
-              {t("addressLine2")}
+            {/* The only place the full postal address is printed. */}
+            <li>
+              <address className="leading-text not-italic">
+                {site.address.lines.map((line, index) => (
+                  <Fragment key={line}>
+                    {index > 0 && <br />}
+                    {line}
+                  </Fragment>
+                ))}
+              </address>
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2.5 inline-flex items-center gap-2.25 font-semibold text-white hover:text-white/80"
+              >
+                {t("mapCta")} <Arrow />
+              </a>
             </li>
           </ul>
+        </div>
+
+        <div>
+          <ColumnHeading>{t("hoursHeading")}</ColumnHeading>
+          <dl className="text-body divide-y divide-white/10 border-y border-white/10">
+            {site.openingHours.map((entry) => (
+              <div
+                key={entry.key}
+                className="flex items-baseline justify-between gap-5 py-2.75"
+              >
+                <dt>{t(`hours.${entry.key}`)}</dt>
+                <dd
+                  className={
+                    entry.closed
+                      ? "text-brand-bright font-semibold"
+                      : "font-semibold tabular-nums text-white"
+                  }
+                >
+                  {entry.hours ?? t("closed")}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="text-caption leading-copy mt-3">{t("timezoneNote")}</p>
         </div>
       </div>
 

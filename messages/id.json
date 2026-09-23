@@ -343,20 +343,7 @@
     "eyebrow": "KONTAK",
     "title": "Konsultasi, pemesanan, dan penawaran harga.",
     "intro": "Sampaikan kebutuhan komponen Anda — tim kami akan membantu menentukan spesifikasi yang tepat.",
-    "whatsappLabel": "WHATSAPP",
-    "whatsappNote": "Pertanyaan teknis, permintaan sampel, dan penawaran harga dijawab paling cepat lewat WhatsApp pada jam kerja.",
-    "instagramLabel": "INSTAGRAM",
-    "addressLabel": "ALAMAT",
-    "hoursLabel": "JAM OPERASIONAL",
-    "timezoneNote": "Semua waktu dalam WIB (GMT+7).",
-    "closed": "Tutup",
-    "hours": {
-      "weekdays": "Senin – Jumat",
-      "saturday": "Sabtu",
-      "sunday": "Minggu & hari besar"
-    },
-    "mapCta": "Buka rute di Google Maps",
-    "mapTitle": "Peta lokasi {name}"
+    "whatsappNote": "Pertanyaan teknis, permintaan sampel, dan penawaran harga dijawab paling cepat lewat WhatsApp pada jam kerja."
   },
   "ContactForm": {
     "nameLabel": "Nama",
@@ -387,8 +374,15 @@
     "tagline": "Manufaktur fastener dan precision hardware. Bagian dari grup industri yang berdiri di Hong Kong sejak 1982.",
     "pagesHeading": "HALAMAN",
     "contactHeading": "KONTAK",
-    "addressLine1": "Kadu Jaya, Curug,",
-    "addressLine2": "Kabupaten Tangerang, Banten",
+    "mapCta": "Buka rute di Google Maps",
+    "hoursHeading": "JAM OPERASIONAL",
+    "hours": {
+      "weekdays": "Senin – Jumat",
+      "saturday": "Sabtu",
+      "sunday": "Minggu & hari besar"
+    },
+    "closed": "Tutup",
+    "timezoneNote": "Semua waktu dalam WIB (GMT+7).",
     "copyright": "© 2026 {name}"
   },
   "NotFound": {

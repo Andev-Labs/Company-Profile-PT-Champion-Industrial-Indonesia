@@ -6,8 +6,8 @@ import { footerNavItems, site, whatsappDisplay, whatsappUrl } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-fog">
-      <div className="max-w-shell mx-auto grid grid-cols-[minmax(0,1.3fr)_repeat(2,minmax(0,1fr))] gap-15 px-10 pt-16 pb-8">
-        <div>
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_repeat(2,minmax(0,1fr))] lg:gap-15 lg:pt-16">
+        <div className="sm:col-span-2 lg:col-span-1">
           <Image
             src="/images/logo-cmf.png"
             alt="Logo CMF"
@@ -78,7 +78,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-shell text-caption mx-auto flex items-center justify-between gap-6 px-10 py-5.5">
+        <div className="max-w-shell px-shell text-caption mx-auto flex items-center justify-between gap-6 py-5.5">
           <p>© 2026 {site.name}</p>
         </div>
       </div>

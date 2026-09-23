@@ -23,8 +23,8 @@ export function ContactForm() {
   const whatsappLink = buildWhatsappLink({ name, company, need, message });
 
   return (
-    <div className="bg-white px-11 py-12">
-      <div className="grid grid-cols-2 gap-5.5">
+    <div className="bg-white px-6 py-9 sm:px-11 sm:py-12">
+      <div className="grid grid-cols-1 gap-5.5 sm:grid-cols-2">
         <label className="flex flex-col gap-2.25">
           <span className="text-caption text-ink-soft font-semibold">Nama</span>
           <input

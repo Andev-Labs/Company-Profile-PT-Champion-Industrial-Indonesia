@@ -1,23 +1,24 @@
 import Image from "next/image";
 
 import { Arrow } from "@/components/arrow";
+import { MobileNav } from "@/components/mobile-nav";
 import { navItems } from "@/lib/site";
 
 export function SiteHeader() {
   return (
     <header className="bg-white/95 border-line sticky top-0 z-60 border-b backdrop-blur-[10px]">
-      <div className="max-w-shell mx-auto flex h-21 items-center justify-between gap-10 px-10">
-        <a href="#atas" className="flex items-center gap-3.5">
+      <div className="max-w-shell px-shell mx-auto flex h-16 items-center justify-between gap-4 lg:h-21 lg:gap-10">
+        <a href="#atas" className="flex min-w-0 items-center gap-3 lg:gap-3.5">
           <Image
             src="/images/logo-cmf.png"
             alt="Logo CMF"
             width={780}
             height={540}
             priority
-            className="h-9.5 w-auto"
+            className="h-8 w-auto flex-none lg:h-9.5"
           />
-          <span className="flex flex-col leading-heading">
-            <span className="font-display text-ink tracking-nudge text-[15px] font-bold">
+          <span className="leading-heading flex min-w-0 flex-col">
+            <span className="font-display text-ink tracking-nudge truncate text-[13px] font-bold sm:text-[15px]">
               PT CHAMPION INDUSTRIAL
             </span>
             <span className="text-slate tracking-logo text-micro font-medium">
@@ -28,7 +29,7 @@ export function SiteHeader() {
 
         <nav
           aria-label="Navigasi utama"
-          className="text-body flex items-center gap-6.5 font-medium whitespace-nowrap"
+          className="text-body hidden items-center gap-6.5 font-medium whitespace-nowrap lg:flex"
         >
           {navItems.map((item) => (
             <a
@@ -47,6 +48,8 @@ export function SiteHeader() {
             <Arrow />
           </a>
         </nav>
+
+        <MobileNav />
       </div>
     </header>
   );

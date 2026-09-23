@@ -67,13 +67,17 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
   return (
     <>
       {/*
-        `overflow-hidden` because the map is sized to fill a 1200px-wide frame.
-        The page's `min-w-desk` floor lets the frame get as narrow as 1100px,
-        and there the map is cropped at the border rather than letterboxed —
+        `overflow-hidden` because the map is sized to fill its frame rather than
+        fit inside it: the frame is always narrower than the map's 2.32:1
+        viewBox, so the map is cropped at the border rather than letterboxed —
         which is the whole point: no stranded edges inside the frame.
+
+        The frame gets shorter as the viewport narrows, which shrinks the map
+        with it and keeps the cropped window centred on the corridor the five
+        sites sit in — from the Pearl River Delta down to Java.
       */}
       <div
-        className="relative mb-18 h-130 overflow-hidden border border-white/10"
+        className="relative mb-12 h-64 overflow-hidden border border-white/10 sm:h-80 lg:mb-18 lg:h-130"
         onPointerLeave={() => setHovered(null)}
       >
         <div
@@ -135,7 +139,12 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
               </g>
             )}
 
-            <g stroke="#ffffff" strokeOpacity="0.28" strokeWidth="2.5">
+            <g
+              stroke="#ffffff"
+              strokeOpacity="0.28"
+              strokeWidth="2.5"
+              className="hidden lg:block"
+            >
               {locations.map((location) => {
                 const placement = LABELS[location.id];
                 const point = points.get(location.id);
@@ -239,7 +248,12 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
                 data-location={location.id}
                 style={toMapPercent({ x: placement.x, y: placement.y })}
                 className={cn(
-                  "absolute flex cursor-pointer py-1 whitespace-nowrap transition-opacity duration-300",
+                  // Below `lg` the frame is too narrow to carry these without
+                  // the rows colliding or running off the crop. The five cards
+                  // underneath hold the same copy at full size, and the map is
+                  // `aria-hidden` either way, so nothing is lost by dropping
+                  // them there.
+                  "absolute hidden cursor-pointer py-1 whitespace-nowrap transition-opacity duration-300 lg:flex",
                   placement.variant === "inline"
                     ? "-translate-y-1/2 items-baseline gap-2"
                     : "flex-col",
@@ -273,9 +287,9 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
       <div className="relative" onPointerLeave={() => setHovered(null)}>
         <span
           aria-hidden="true"
-          className="absolute top-[11px] right-0 left-0 h-px bg-white/15"
+          className="absolute top-[11px] right-0 left-0 hidden h-px bg-white/15 lg:block"
         />
-        <ul className="relative grid grid-cols-5 gap-6">
+        <ul className="relative grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {locations.map((location) => {
             const lit = active === location.id;
             // The cards deliberately do not dim with the map. They carry the

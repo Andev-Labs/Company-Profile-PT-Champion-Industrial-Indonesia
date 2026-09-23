@@ -16,9 +16,9 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 
 export function ContactSection() {
   return (
-    <section id="kontak" className="scroll-mt-24 bg-white">
-      <div className="max-w-shell mx-auto px-10 py-27.5">
-        <div className="mb-14 max-w-[680px]">
+    <section id="kontak" className="scroll-mt-20 bg-white lg:scroll-mt-24">
+      <div className="max-w-shell px-shell py-section mx-auto">
+        <div className="mb-10 max-w-[680px] lg:mb-14">
           <Eyebrow>KONTAK</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-5 font-bold">
             Konsultasi, pemesanan, dan penawaran harga.
@@ -29,8 +29,8 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="bg-line border-line grid grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-px border">
-          <div className="bg-mist flex flex-col gap-8.5 px-11 py-12">
+        <div className="bg-line border-line grid grid-cols-1 gap-px border lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+          <div className="bg-mist flex flex-col gap-8 px-6 py-9 sm:px-11 sm:py-12 lg:gap-8.5">
             <div>
               <FieldLabel>WHATSAPP</FieldLabel>
               <a

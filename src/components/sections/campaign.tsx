@@ -6,7 +6,7 @@ import { whatsappUrl } from "@/lib/site";
 export function CampaignSection() {
   return (
     <section className="bg-brand text-white">
-      <div className="max-w-shell mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-16 px-10 py-21">
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-center gap-9 py-16 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16 lg:py-21">
         <div>
           <p className="font-display text-campaign tracking-display mb-4.5 leading-[1.05] font-bold">
             Buat apa impor?
@@ -20,7 +20,7 @@ export function CampaignSection() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-brand text-cta hover:bg-ink inline-flex items-center gap-3 bg-white px-8.5 py-5 font-bold whitespace-nowrap hover:text-white"
+          className="text-brand text-cta hover:bg-ink inline-flex items-center justify-center gap-3 bg-white px-8.5 py-5 font-bold whitespace-nowrap hover:text-white"
         >
           <MessageCircle aria-hidden="true" className="size-5.25 flex-none" />
           Minta penawaran <Arrow />

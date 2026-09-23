@@ -15,8 +15,8 @@
  * this component replaced, by least-squares fitting a Mercator to the five
  * marker positions measured off that bitmap. Residuals were under 3.2px on a
  * 2992px-wide image (~0.8 CSS px as rendered), so the generated outlines land
- * on the same pixels the approved mockup did. The viewBox is kept in the
- * bitmap's own pixel space for the same reason.
+ * on the same pixels the approved mockup did. The viewBox stays in the
+ * bitmap's own pixel space for the same reason — only widened, see VIEW.
  */
 import { writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -26,7 +26,30 @@ import { feature } from "topojson-client";
 
 const require = createRequire(import.meta.url);
 
-const VIEW = { width: 2992, height: 2018 };
+/**
+ * The bitmap was 2992x2018 and sat letterboxed inside a 1200x520 frame, which
+ * left ~216px of empty margin on each side and stranded the clipped edge of
+ * Iran in the middle of that emptiness — a hard vertical line with nothing
+ * beside it. The view is widened here to the frame's own 1200/520 aspect so
+ * the map fills it edge to edge and the clip lands flush against the border.
+ *
+ * The extra width is split evenly, so every projected point — every marker —
+ * keeps the exact screen position it had inside the old letterboxed map.
+ */
+const SOURCE = { width: 2992, height: 2018 };
+const FRAME_ASPECT = 1200 / 520;
+/**
+ * Half a percent of overscan. The frame's 1px border eats into its content
+ * box, and the map is sized off its height, so without this it lands ~1.3px
+ * short on each side and leaves a thin bare sliver inside the border.
+ */
+const OVERSCAN = 1.005;
+const VIEW = {
+  width: Math.round(SOURCE.height * FRAME_ASPECT * OVERSCAN * 10) / 10,
+  height: SOURCE.height,
+};
+VIEW.minX = Math.round(((SOURCE.width - VIEW.width) / 2) * 10) / 10;
+VIEW.minY = 0;
 const PROJECTION = { scale: 1675.607, translateX: -1735.81, translateY: 1287.07 };
 
 /** Countries the mockup fills one step lighter than the rest. */
@@ -50,8 +73,8 @@ const projection = geoMercator()
 
 const path = geoPath(
   projection.clipExtent([
-    [-40, -40],
-    [VIEW.width + 40, VIEW.height + 40],
+    [VIEW.minX - 40, VIEW.minY - 40],
+    [VIEW.minX + VIEW.width + 40, VIEW.minY + VIEW.height + 40],
   ]),
 ).digits(1);
 
@@ -59,10 +82,10 @@ const path = geoPath(
 const lngAt = (x) => (x - PROJECTION.translateX) / PROJECTION.scale / RAD;
 const latAt = (y) =>
   (Math.atan(Math.exp((PROJECTION.translateY - y) / PROJECTION.scale)) * 2) / RAD - 90;
-const west = lngAt(0) - 5;
-const east = lngAt(VIEW.width) + 5;
-const north = latAt(0) + 5;
-const south = latAt(VIEW.height) - 5;
+const west = lngAt(VIEW.minX) - 5;
+const east = Math.min(lngAt(VIEW.minX + VIEW.width) + 5, 180);
+const north = latAt(VIEW.minY) + 5;
+const south = latAt(VIEW.minY + VIEW.height) - 5;
 
 const shapes = [];
 for (const country of countries.features) {
@@ -94,7 +117,12 @@ export type MapCountry = {
 };
 
 /** Coordinate space of the map's \`viewBox\`. */
-export const MAP_VIEW = { width: ${VIEW.width}, height: ${VIEW.height} } as const;
+export const MAP_VIEW = {
+  minX: ${VIEW.minX},
+  minY: ${VIEW.minY},
+  width: ${VIEW.width},
+  height: ${VIEW.height},
+} as const;
 
 /** Mercator parameters that place a lng/lat pair inside \`MAP_VIEW\`. */
 export const MAP_PROJECTION = {
@@ -113,8 +141,9 @@ writeFileSync(new URL("../src/lib/map-geometry.ts", import.meta.url), file);
 const bytes = shapes.reduce((total, s) => total + s.d.length, 0);
 console.log(`${shapes.length} countries, ${bytes} bytes of path data`);
 console.log(
-  `frame: lng ${lngAt(0).toFixed(2)}..${lngAt(VIEW.width).toFixed(2)}, ` +
-    `lat ${latAt(VIEW.height).toFixed(2)}..${latAt(0).toFixed(2)}`,
+  `viewBox: ${VIEW.minX} ${VIEW.minY} ${VIEW.width} ${VIEW.height}\n` +
+    `frame: lng ${lngAt(VIEW.minX).toFixed(2)}..${lngAt(VIEW.minX + VIEW.width).toFixed(2)}, ` +
+    `lat ${latAt(VIEW.minY + VIEW.height).toFixed(2)}..${latAt(VIEW.minY).toFixed(2)}`,
 );
 // Sanity check: these should match the markers measured off the old bitmap.
 for (const [label, lng, lat] of [

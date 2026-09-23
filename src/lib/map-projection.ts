@@ -25,11 +25,15 @@ export function projectToMap(lng: number, lat: number): MapPoint {
   };
 }
 
-/** Position within the map frame, as a percentage — used to place HTML labels. */
+/**
+ * Position within the map frame, as a percentage — used to place HTML labels.
+ * Relative to the viewBox origin, which is not at zero: the view is wider than
+ * the source bitmap so the map can fill its frame.
+ */
 export function toMapPercent(point: MapPoint): { left: string; top: string } {
   return {
-    left: `${((point.x / MAP_VIEW.width) * 100).toFixed(4)}%`,
-    top: `${((point.y / MAP_VIEW.height) * 100).toFixed(4)}%`,
+    left: `${(((point.x - MAP_VIEW.minX) / MAP_VIEW.width) * 100).toFixed(4)}%`,
+    top: `${(((point.y - MAP_VIEW.minY) / MAP_VIEW.height) * 100).toFixed(4)}%`,
   };
 }
 

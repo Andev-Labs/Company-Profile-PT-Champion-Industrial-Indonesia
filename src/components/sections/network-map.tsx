@@ -66,8 +66,14 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
 
   return (
     <>
+      {/*
+        `overflow-hidden` because the map is sized to fill a 1200px-wide frame.
+        The page's `min-w-desk` floor lets the frame get as narrow as 1100px,
+        and there the map is cropped at the border rather than letterboxed —
+        which is the whole point: no stranded edges inside the frame.
+      */}
       <div
-        className="relative mb-18 h-130 border border-white/10"
+        className="relative mb-18 h-130 overflow-hidden border border-white/10"
         onPointerLeave={() => setHovered(null)}
       >
         <div
@@ -75,7 +81,7 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
           style={{ aspectRatio: `${MAP_VIEW.width} / ${MAP_VIEW.height}` }}
         >
           <svg
-            viewBox={`0 0 ${MAP_VIEW.width} ${MAP_VIEW.height}`}
+            viewBox={`${MAP_VIEW.minX} ${MAP_VIEW.minY} ${MAP_VIEW.width} ${MAP_VIEW.height}`}
             className="absolute inset-0 size-full"
             aria-hidden="true"
             focusable="false"

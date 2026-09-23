@@ -109,11 +109,6 @@ export const navItems: NavItem[] = [
   { href: "#galeri", key: "gallery" },
 ];
 
-export const footerNavItems: { href: string; key: NavKey | "contact" }[] = [
-  ...navItems,
-  { href: "#kontak", key: "contact" },
-];
-
 /** Builds the prefilled WhatsApp deep link used by the contact form. */
 export function buildWhatsappLink(input: {
   labels: {

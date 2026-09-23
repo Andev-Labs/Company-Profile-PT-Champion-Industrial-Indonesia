@@ -14,7 +14,6 @@
   },
   "Nav": {
     "mainLabel": "Navigasi utama",
-    "footerLabel": "Navigasi footer",
     "openMenu": "Buka menu navigasi",
     "closeMenu": "Tutup menu navigasi",
     "cta": "Hubungi Kami",
@@ -23,14 +22,7 @@
     "products": "Produk",
     "technology": "Teknologi",
     "industries": "Industri",
-    "gallery": "Galeri",
-    "aboutLong": "Tentang Kami",
-    "networkLong": "Jaringan Operasi",
-    "productsLong": "Produk & Layanan",
-    "technologyLong": "Teknologi & Proses",
-    "industriesLong": "Industri yang Dilayani",
-    "galleryLong": "Galeri",
-    "contactLong": "Kontak"
+    "gallery": "Galeri"
   },
   "Brand": {
     "logoAlt": "Logo CMF"
@@ -372,7 +364,6 @@
   },
   "Footer": {
     "tagline": "Manufaktur fastener dan precision hardware. Bagian dari grup industri yang berdiri di Hong Kong sejak 1982.",
-    "pagesHeading": "HALAMAN",
     "contactHeading": "KONTAK",
     "mapHeading": "LOKASI",
     "mapTitle": "Peta lokasi {name}",

@@ -4,6 +4,8 @@ import { Arrow } from "@/components/arrow";
 import { Eyebrow } from "@/components/eyebrow";
 import { PhotoFrame } from "@/components/photo-frame";
 import { products, services } from "@/lib/content";
+import { revealLag } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 export function ProductsSection() {
   const t = useTranslations("Products");
@@ -11,7 +13,7 @@ export function ProductsSection() {
   return (
     <section id="produk" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading text-ink font-bold">
@@ -20,15 +22,18 @@ export function ProductsSection() {
           </div>
           <a
             href="#kontak"
-            className="border-line-strong text-ink text-body hover:border-brand hover:text-brand inline-flex items-center gap-2.5 border px-6.5 py-3.75 font-semibold whitespace-nowrap"
+            className="border-line-strong text-ink text-body hover:border-brand hover:text-brand group inline-flex items-center gap-2.5 border px-6.5 py-3.75 font-semibold whitespace-nowrap"
           >
             {t("cta")} <Arrow />
           </a>
         </div>
 
         <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
-          {products.map((product) => (
-            <li key={product.id} className="reveal-on-scroll">
+          {products.map((product, index) => (
+            <li
+              key={product.id}
+              className={cn("group reveal-on-scroll", revealLag(index))}
+            >
               <div className="bg-mist relative mb-5.5 h-62.5">
                 <PhotoFrame
                   {...product}
@@ -46,9 +51,12 @@ export function ProductsSection() {
           ))}
         </ul>
 
-        <ul className="bg-line border-line mt-14 grid grid-cols-1 gap-px border sm:grid-cols-2 lg:mt-18 lg:grid-cols-4">
+        <ul className="reveal-on-scroll bg-line border-line mt-14 grid grid-cols-1 gap-px border sm:grid-cols-2 lg:mt-18 lg:grid-cols-4">
           {services.map((no) => (
-            <li key={no} className="hover:bg-mist bg-white px-7 py-8">
+            <li
+              key={no}
+              className="hover:bg-mist bg-white px-7 py-8 transition-colors duration-200"
+            >
               <p className="font-display text-caption text-brand mb-3.5 font-bold">
                 {no}
               </p>

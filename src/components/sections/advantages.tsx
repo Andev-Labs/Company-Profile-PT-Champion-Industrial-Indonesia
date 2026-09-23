@@ -3,6 +3,8 @@ import { useTranslations } from "next-intl";
 import { Arrow } from "@/components/arrow";
 import { Eyebrow } from "@/components/eyebrow";
 import { reasons } from "@/lib/content";
+import { revealLag } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 export function AdvantagesSection() {
   const t = useTranslations("Advantages");
@@ -10,7 +12,7 @@ export function AdvantagesSection() {
   return (
     <section id="keunggulan" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
-        <div>
+        <div className="reveal-on-scroll">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-6.5 font-bold">
             {t("title")}
@@ -20,15 +22,18 @@ export function AdvantagesSection() {
           </p>
           <a
             href="#kontak"
-            className="bg-ink text-cta-sm hover:bg-brand inline-flex items-center gap-2.5 px-7.5 py-4.25 font-semibold text-white hover:text-white"
+            className="bg-ink text-cta-sm hover:bg-brand group inline-flex items-center gap-2.5 px-7.5 py-4.25 font-semibold text-white hover:text-white"
           >
             {t("cta")} <Arrow />
           </a>
         </div>
 
         <ul className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-2 lg:gap-y-8.5">
-          {reasons.map((no) => (
-            <li key={no} className="reveal-on-scroll flex gap-4.5">
+          {reasons.map((no, index) => (
+            <li
+              key={no}
+              className={cn("reveal-on-scroll flex gap-4.5", revealLag(index))}
+            >
               <span
                 aria-hidden="true"
                 className="bg-brand font-display flex size-8.5 flex-none items-center justify-center rounded-full text-note font-bold text-white"

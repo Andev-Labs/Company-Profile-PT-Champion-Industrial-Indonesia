@@ -28,13 +28,16 @@ export function PhotoFrame({
 }: PhotoFrameProps) {
   return (
     <figure className={cn("absolute inset-0 overflow-hidden", className)}>
+      {/* The photo eases in when the card around it is hovered. Like `Arrow`,
+          the zoom only fires under a `group` ancestor, so a frame that is not
+          part of a hoverable card stays still. */}
       <Image
         src={src}
         alt={alt}
         fill
         sizes={sizes}
         priority={priority}
-        className="object-cover"
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
       />
       <figcaption className="absolute bottom-2 left-2">
         <a

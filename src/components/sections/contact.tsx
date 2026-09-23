@@ -15,7 +15,7 @@ export function ContactSection() {
   return (
     <section id="kontak" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto grid grid-cols-1 items-start gap-9 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-16">
-        <div className="max-w-[680px] lg:self-center">
+        <div className="reveal-on-scroll max-w-[680px] lg:self-center">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-5 font-bold">
             {t("title")}
@@ -26,7 +26,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="border-line border">
+        <div className="reveal-on-scroll border-line border">
           <ContactForm />
         </div>
       </div>

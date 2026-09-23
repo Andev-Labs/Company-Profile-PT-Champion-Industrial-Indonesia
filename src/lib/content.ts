@@ -51,12 +51,25 @@ export type GalleryId = "1" | "2" | "3" | "4" | "5" | "6";
 
 export type GalleryItem = PhotoCredit & { id: GalleryId; wide: boolean };
 
-export const heroStats = [
-  { key: "founded", value: "1982" },
-  { key: "operating", value: "2026" },
-  { key: "locations", value: "5" },
-  { key: "oem", value: "OEM" },
-] as const;
+export type HeroStatKey = "founded" | "operating" | "locations" | "oem";
+
+/**
+ * A hero figure either counts up into view or is a word that cannot.
+ * `from` is the figure the count starts at: a year counts from the decade
+ * below it, because a year ticking up from zero spends most of its run
+ * showing dates that mean nothing.
+ */
+export type HeroStat = { key: HeroStatKey } & (
+  | { from: number; to: number; suffix?: string }
+  | { text: string }
+);
+
+export const heroStats: HeroStat[] = [
+  { key: "founded", from: 1950, to: 1982 },
+  { key: "operating", from: 1990, to: 2026 },
+  { key: "locations", from: 0, to: 5 },
+  { key: "oem", text: "OEM" },
+];
 
 export const tickerIndustries = [
   "furniture",

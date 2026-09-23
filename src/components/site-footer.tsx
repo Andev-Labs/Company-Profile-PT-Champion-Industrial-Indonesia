@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 
+import { InstagramIcon } from "@/components/instagram-icon";
 import { footerNavItems, site, whatsappDisplay, whatsappUrl } from "@/lib/site";
 
 export function SiteFooter() {
@@ -63,8 +64,9 @@ export function SiteFooter() {
                 href={site.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fog hover:text-white"
+                className="text-fog inline-flex items-center gap-2.25 hover:text-white"
               >
+                <InstagramIcon className="size-4.25 flex-none" />
                 {site.instagram.handle}
               </a>
             </li>

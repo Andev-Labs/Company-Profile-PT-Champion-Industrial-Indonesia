@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 
 import type { NetworkLocation } from "@/lib/content";
 import { MAP_COUNTRIES, MAP_VIEW } from "@/lib/map-geometry";
-import { projectToMap, routePath, toMapPercent } from "@/lib/map-projection";
+import {
+  projectToMap,
+  routePath,
+  toMapPercent,
+  type MapPoint,
+} from "@/lib/map-projection";
 import { cn } from "@/lib/utils";
 
 /**
@@ -38,6 +43,27 @@ const ROUTES: { from: string; bow: number }[] = [
 
 const HUB = "indonesia";
 
+/** Custom properties `map-viewport` reads to aim the crop. */
+type MapFocusStyle = CSSProperties & {
+  "--map-focus-x": string;
+  "--map-focus-y": string;
+};
+
+/**
+ * Mid-point of the markers' bounding box, as a position within the map. The
+ * crop is aimed at this rather than at the middle of the viewBox, so the frame
+ * shows the network instead of whatever happens to sit in the centre of the
+ * world.
+ */
+function focusOf(points: MapPoint[]): MapPoint {
+  const xs = points.map((point) => point.x);
+  const ys = points.map((point) => point.y);
+  return {
+    x: (Math.min(...xs) + Math.max(...xs)) / 2,
+    y: (Math.min(...ys) + Math.max(...ys)) / 2,
+  };
+}
+
 /**
  * The Pearl River Delta sites. Hong Kong and Shenzhen project ~6 viewBox units
  * apart — under 2 CSS px — so no pointer can pick between them on the map.
@@ -62,28 +88,29 @@ export function NetworkMap({ locations }: { locations: NetworkLocation[] }) {
   const points = new Map(locations.map((l) => [l.id, projectToMap(l.lng, l.lat)]));
   const hub = points.get(HUB);
 
+  const focus = toMapPercent(focusOf([...points.values()]));
+  const mapStyle: MapFocusStyle = {
+    aspectRatio: `${MAP_VIEW.width} / ${MAP_VIEW.height}`,
+    "--map-focus-x": focus.left,
+    "--map-focus-y": focus.top,
+  };
+
   const isDimmed = (id: string) => active !== null && active !== id;
 
   return (
     <>
       {/*
-        `overflow-hidden` because the map is sized to fill its frame rather than
-        fit inside it: the frame is always narrower than the map's 2.32:1
-        viewBox, so the map is cropped at the border rather than letterboxed —
-        which is the whole point: no stranded edges inside the frame.
-
-        The frame gets shorter as the viewport narrows, which shrinks the map
-        with it and keeps the cropped window centred on the corridor the five
-        sites sit in — from the Pearl River Delta down to Java.
+        `overflow-hidden` because the map is always wider than this frame: it is
+        cropped at the border rather than letterboxed, which is the whole point
+        — no stranded edges inside the frame. Where that crop is aimed, and how
+        far the map is scaled past the frame on small screens, is `map-viewport`
+        in `globals.css`.
       */}
       <div
-        className="relative mb-12 h-64 overflow-hidden border border-white/10 sm:h-80 lg:mb-18 lg:h-130"
+        className="relative mb-12 h-80 overflow-hidden border border-white/10 sm:h-96 lg:mb-18 lg:h-130"
         onPointerLeave={() => setHovered(null)}
       >
-        <div
-          className="relative mx-auto h-full"
-          style={{ aspectRatio: `${MAP_VIEW.width} / ${MAP_VIEW.height}` }}
-        >
+        <div className="map-viewport" style={mapStyle}>
           <svg
             viewBox={`${MAP_VIEW.minX} ${MAP_VIEW.minY} ${MAP_VIEW.width} ${MAP_VIEW.height}`}
             className="absolute inset-0 size-full"

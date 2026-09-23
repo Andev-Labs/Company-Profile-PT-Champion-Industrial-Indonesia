@@ -250,6 +250,39 @@
 
 /* --- Operations map ------------------------------------------------------ */
 
+/* The map is always wider than the frame that shows it, so the frame is a
+ * window onto the map rather than a container for it.
+ *
+ * `margin-inline: auto` cannot centre an overflowing block — the declaration is
+ * over-constrained, the used left margin resolves to zero, and the entire
+ * overflow spills off the right edge — so the window is aimed explicitly
+ * instead: the map box is pinned to the frame's centre and pulled back by the
+ * mid-point of the five markers, which the component measures from the
+ * projected positions and hands over as `--map-focus-x` / `--map-focus-y`.
+ * Aiming it from the data means moving or adding a site re-centres the crop on
+ * its own.
+ *
+ * Below `lg` the box is also scaled past the frame's height: at phone width a
+ * map that merely fits the frame draws the archipelago too small to read. On
+ * the desktop grid it fills the height exactly — that is the approved framing,
+ * and with no vertical slack there is nothing to shift it within, so the
+ * vertical aim goes back to the plain centre. */
+@utility map-viewport {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 170%;
+  transform: translate(
+    calc(var(--map-focus-x) * -1),
+    calc(var(--map-focus-y) * -1)
+  );
+
+  @variant lg {
+    height: 100%;
+    transform: translate(calc(var(--map-focus-x) * -1), -50%);
+  }
+}
+
 /* Halo breathing out of each location marker. Scaled rather than animating the
    `r` attribute, which older Safari will not animate from CSS. */
 @keyframes mapPulse {

@@ -4,8 +4,8 @@ import { reasons } from "@/lib/content";
 
 export function AdvantagesSection() {
   return (
-    <section id="keunggulan" className="scroll-mt-24 bg-white">
-      <div className="max-w-shell mx-auto grid grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] items-start gap-20 px-10 py-27.5">
+    <section id="keunggulan" className="scroll-mt-20 bg-white lg:scroll-mt-24">
+      <div className="max-w-shell px-shell py-section mx-auto grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
         <div>
           <Eyebrow>KENAPA KAMI</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-6.5 font-bold">
@@ -23,7 +23,7 @@ export function AdvantagesSection() {
           </a>
         </div>
 
-        <ul className="grid grid-cols-2 gap-x-10 gap-y-8.5">
+        <ul className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-2 lg:gap-y-8.5">
           {reasons.map((reason) => (
             <li key={reason.no} className="reveal-on-scroll flex gap-4.5">
               <span

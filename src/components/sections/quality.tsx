@@ -6,8 +6,8 @@ import { documents, qualitySteps } from "@/lib/content";
 
 export function QualitySection() {
   return (
-    <section id="mutu" className="bg-mist border-line scroll-mt-24 border-t">
-      <div className="max-w-shell mx-auto grid grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] items-start gap-20 px-10 pt-27.5 pb-14">
+    <section id="mutu" className="bg-mist border-line scroll-mt-20 border-t lg:scroll-mt-24">
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-16 pb-12 sm:pt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] lg:gap-20 lg:pt-27.5 lg:pb-14">
         <div>
           <Eyebrow>KOMITMEN MUTU</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-6.5 font-bold">
@@ -18,7 +18,7 @@ export function QualitySection() {
             sampai komponen dikemas. Dokumen mutu dan hasil uji tersedia atas
             permintaan pelanggan.
           </p>
-          <ul className="bg-line border-line grid grid-cols-3 gap-px border">
+          <ul className="bg-line border-line grid grid-cols-1 gap-px border sm:grid-cols-3">
             {qualitySteps.map((step) => (
               <li key={step.name} className="bg-white px-6 py-7">
                 <h3 className="font-display text-body-lg text-ink mb-2.25 font-bold">
@@ -77,9 +77,9 @@ export function QualitySection() {
         </div>
       </div>
 
-      <div className="max-w-shell mx-auto px-10 pb-27.5">
-        <div className="bg-ink px-10 py-11 text-white">
-          <div className="mb-9 flex items-end justify-between gap-15">
+      <div className="max-w-shell px-shell mx-auto pb-16 sm:pb-20 lg:pb-27.5">
+        <div className="bg-ink px-6 py-9 text-white sm:px-10 sm:py-11">
+          <div className="mb-8 flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-15 lg:mb-9">
             <p className="text-label tracking-label text-fog-soft font-semibold">
               DOKUMEN TEKNIS
             </p>
@@ -90,9 +90,9 @@ export function QualitySection() {
               Minta dokumen <Arrow />
             </a>
           </div>
-          <ul className="grid grid-cols-4 gap-px bg-white/10">
+          <ul className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
             {documents.map((document) => (
-              <li key={document.name} className="bg-ink pr-7">
+              <li key={document.name} className="bg-ink py-4 sm:py-0 sm:pr-7">
                 <div className="flex items-start gap-3.25">
                   <span
                     aria-hidden="true"

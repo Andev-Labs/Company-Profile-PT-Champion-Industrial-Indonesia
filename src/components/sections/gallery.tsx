@@ -5,9 +5,9 @@ import { gallery } from "@/lib/content";
 
 export function GallerySection() {
   return (
-    <section id="galeri" className="bg-ink scroll-mt-24 text-white">
-      <div className="max-w-shell mx-auto px-10 py-27.5">
-        <div className="mb-12 flex items-end justify-between gap-15">
+    <section id="galeri" className="bg-ink scroll-mt-20 text-white lg:scroll-mt-24">
+      <div className="max-w-shell px-shell py-section mx-auto">
+        <div className="mb-10 flex flex-col items-start gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow className="text-brand-bright">GALERI</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading font-bold">
@@ -22,13 +22,20 @@ export function GallerySection() {
           </a>
         </div>
 
-        <ul className="grid grid-cols-4 grid-rows-[repeat(2,220px)] gap-4">
+        <ul className="grid auto-rows-[140px] grid-cols-2 gap-3 sm:auto-rows-[190px] sm:gap-4 lg:auto-rows-auto lg:grid-cols-4 lg:grid-rows-[repeat(2,220px)]">
           {gallery.map((item) => (
             <li
               key={item.src}
               className={item.wide ? "relative col-span-2" : "relative"}
             >
-              <PhotoFrame {...item} sizes={item.wide ? "605px" : "295px"} />
+              <PhotoFrame
+                {...item}
+                sizes={
+                  item.wide
+                    ? "(min-width: 1024px) 605px, 100vw"
+                    : "(min-width: 1024px) 295px, 50vw"
+                }
+              />
             </li>
           ))}
         </ul>

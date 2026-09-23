@@ -17,9 +17,7 @@ import { OrganizationJsonLd } from "@/components/structured-data";
 
 export default function HomePage() {
   return (
-    /* The approved design is a fixed desktop grid; mobile breakpoints are
-       deliberately out of scope for ANDEV-124, so the shell holds its width. */
-    <div className="min-w-desk w-full">
+    <div className="w-full">
       <OrganizationJsonLd />
       <SiteHeader />
       <main>

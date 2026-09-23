@@ -4,9 +4,9 @@ import { techSteps } from "@/lib/content";
 
 export function TechnologySection() {
   return (
-    <section id="teknologi" className="bg-ink scroll-mt-24 text-white">
-      <div className="max-w-shell mx-auto px-10 py-27.5">
-        <div className="mb-14 flex items-end justify-between gap-15">
+    <section id="teknologi" className="bg-ink scroll-mt-20 text-white lg:scroll-mt-24">
+      <div className="max-w-shell px-shell py-section mx-auto">
+        <div className="mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow className="text-brand-bright">TEKNOLOGI &amp; PROSES</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading max-w-[620px] font-bold">
@@ -19,11 +19,14 @@ export function TechnologySection() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-3 gap-7">
+        <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {techSteps.map((step) => (
             <li key={step.no} className="reveal-on-scroll">
               <div className="relative mb-5.5 h-70">
-                <PhotoFrame {...step} sizes="385px" />
+                <PhotoFrame
+                  {...step}
+                  sizes="(min-width: 1024px) 385px, (min-width: 640px) 50vw, 100vw"
+                />
               </div>
               <p className="font-display text-caption text-brand-bright mb-3 font-bold">
                 {step.no}

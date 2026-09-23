@@ -5,9 +5,9 @@ import { heroPhoto, heroStats } from "@/lib/content";
 export function HeroSection() {
   return (
     <section id="atas" className="bg-ink relative overflow-hidden text-white">
-      <div className="max-w-shell mx-auto grid grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-start gap-16 px-10 pt-24">
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-24">
         <div className="reveal-in">
-          <p className="text-eyebrow tracking-label mb-8.5 inline-flex items-center gap-3 border border-white/20 px-4 py-2.25 font-semibold text-line-soft">
+          <p className="text-eyebrow tracking-label text-line-soft mb-7 inline-flex items-center gap-3 border border-white/20 px-4 py-2.25 font-semibold lg:mb-8.5">
             <span
               aria-hidden="true"
               className="bg-brand size-1.75 rounded-full"
@@ -22,28 +22,34 @@ export function HeroSection() {
             berlanjut di Tangerang. Kualitas setara produk impor dengan kontrol
             mutu ketat dan kesiapan supply dalam jumlah besar.
           </p>
-          <p className="font-display text-body-lg tracking-nudge mb-10 font-semibold text-white">
+          <p className="font-display text-body-lg tracking-nudge mb-8 font-semibold text-white lg:mb-10">
             Stronger Connections. Built to Perform.
           </p>
-          <div className="flex items-center gap-4 pb-18">
+          <div className="flex flex-col gap-3.5 pb-12 sm:flex-row sm:items-center sm:gap-4 lg:pb-18">
             <a
               href="#produk"
-              className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center gap-2.5 px-7.5 py-4.25 font-semibold text-white"
+              className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center justify-center gap-2.5 px-7.5 py-4.25 font-semibold text-white sm:justify-start"
             >
               Lihat Produk <Arrow />
             </a>
             <a
               href="#kontak"
-              className="text-cta-sm inline-flex items-center gap-2.5 border border-white/30 px-7.5 py-4.25 font-semibold text-white hover:border-white hover:bg-white/5 hover:text-white"
+              className="text-cta-sm inline-flex items-center justify-center gap-2.5 border border-white/30 px-7.5 py-4.25 font-semibold text-white hover:border-white hover:bg-white/5 hover:text-white sm:justify-start"
             >
               Minta Penawaran
             </a>
           </div>
         </div>
 
-        <div className="reveal-in relative h-130 [animation-delay:0.12s] [animation-duration:1s]">
-          <PhotoFrame {...heroPhoto} sizes="540px" priority />
-          <p className="bg-brand pointer-events-none absolute top-9 -left-10 px-7 py-6 text-white">
+        <div className="reveal-in relative h-72 [animation-delay:0.12s] [animation-duration:1s] sm:h-96 lg:h-130">
+          <PhotoFrame
+            {...heroPhoto}
+            sizes="(min-width: 1024px) 540px, 100vw"
+            priority
+          />
+          {/* The badge only breaks out of the frame once there is a gutter to
+              break out into; on a phone it tucks inside the photo instead. */}
+          <p className="bg-brand pointer-events-none absolute top-4 left-0 px-5 py-4 text-white lg:top-9 lg:-left-10 lg:px-7 lg:py-6">
             <span className="font-display text-stat block leading-none font-bold">
               44+
             </span>
@@ -55,11 +61,14 @@ export function HeroSection() {
       </div>
 
       <div className="border-t border-white/10">
-        <dl className="max-w-shell mx-auto grid grid-cols-4 px-10">
+        <dl className="max-w-shell px-shell mx-auto grid grid-cols-2 sm:grid-cols-4">
+          {/* Two columns on a phone, four from `sm`. The dividers follow the
+              column count: a row rule under the first pair only while there
+              are two rows, and a column rule everywhere but the last cell. */}
           {heroStats.map((stat) => (
             <div
               key={stat.value}
-              className="border-white/10 px-8 py-8 first:pl-0 last:pr-0 not-last:border-r"
+              className="border-white/10 py-7 odd:border-r odd:pr-6 even:pl-6 nth-[-n+2]:border-b sm:border-b-0 sm:px-8 sm:py-8 sm:not-last:border-r sm:first:pl-0 sm:last:pr-0 sm:odd:pr-8 sm:even:pl-8"
             >
               <dt className="sr-only">{stat.label}</dt>
               <dd>

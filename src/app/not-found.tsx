@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="bg-ink flex min-h-screen flex-col items-center justify-center gap-6.5 px-10 text-center text-white">
+    <main className="bg-ink px-shell flex min-h-screen flex-col items-center justify-center gap-6.5 text-center text-white">
       <p className="text-eyebrow tracking-eyebrow text-brand-bright font-semibold">
         ERROR 404
       </p>

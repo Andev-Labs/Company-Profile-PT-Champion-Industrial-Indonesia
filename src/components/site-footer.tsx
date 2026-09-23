@@ -18,7 +18,7 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
 
 /**
  * The footer is where the company's reference details live (ANDEV-131):
- * channels, the full postal address and the opening hours. The contact
+ * channels, the full postal address and the map that locates it. The contact
  * section itself only carries the enquiry form, so these have to be complete
  * here rather than being a teaser for a block further up the page.
  */
@@ -29,7 +29,7 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-ink text-fog">
-      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.65fr)_minmax(0,1.3fr)_minmax(0,0.95fr)] lg:gap-12 lg:pt-16">
+      <div className="max-w-shell px-shell mx-auto grid grid-cols-1 gap-10 pt-14 pb-8 sm:grid-cols-2 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.62fr)_minmax(0,1.2fr)_minmax(0,1.05fr)] lg:gap-12 lg:pt-16">
         <div className="sm:col-span-2 lg:col-span-1">
           <Image
             src="/images/logo-cmf.png"
@@ -95,40 +95,33 @@ export function SiteFooter() {
                   </Fragment>
                 ))}
               </address>
-              <a
-                href={site.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2.5 inline-flex items-center gap-2.25 font-semibold text-white hover:text-white/80"
-              >
-                {t("mapCta")} <Arrow />
-              </a>
             </li>
           </ul>
         </div>
 
         <div>
-          <ColumnHeading>{t("hoursHeading")}</ColumnHeading>
-          <dl className="text-body divide-y divide-white/10 border-y border-white/10">
-            {site.openingHours.map((entry) => (
-              <div
-                key={entry.key}
-                className="flex items-baseline justify-between gap-5 py-2.75"
-              >
-                <dt>{t(`hours.${entry.key}`)}</dt>
-                <dd
-                  className={
-                    entry.closed
-                      ? "text-brand-bright font-semibold"
-                      : "font-semibold tabular-nums text-white"
-                  }
-                >
-                  {entry.hours ?? t("closed")}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <p className="text-caption leading-copy mt-3">{t("timezoneNote")}</p>
+          <ColumnHeading>{t("mapHeading")}</ColumnHeading>
+          {/* The map is the footer's locator for the address printed beside
+              it, so it is lazy-loaded and kept small — it is a landmark, not
+              a section of its own. */}
+          <div className="border border-white/10">
+            <iframe
+              src={site.mapsEmbedUrl}
+              title={t("mapTitle", { name: site.name })}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="block h-[190px] w-full"
+            />
+          </div>
+          <a
+            href={site.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-body mt-3 inline-flex items-center gap-2.25 font-semibold text-white hover:text-white/80"
+          >
+            {t("mapCta")} <Arrow />
+          </a>
         </div>
       </div>
 

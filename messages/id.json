@@ -374,15 +374,9 @@
     "tagline": "Manufaktur fastener dan precision hardware. Bagian dari grup industri yang berdiri di Hong Kong sejak 1982.",
     "pagesHeading": "HALAMAN",
     "contactHeading": "KONTAK",
+    "mapHeading": "LOKASI",
+    "mapTitle": "Peta lokasi {name}",
     "mapCta": "Buka rute di Google Maps",
-    "hoursHeading": "JAM OPERASIONAL",
-    "hours": {
-      "weekdays": "Senin – Jumat",
-      "saturday": "Sabtu",
-      "sunday": "Minggu & hari besar"
-    },
-    "closed": "Tutup",
-    "timezoneNote": "Semua waktu dalam WIB (GMT+7).",
     "copyright": "© 2026 {name}"
   },
   "NotFound": {

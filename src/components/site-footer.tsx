@@ -107,7 +107,7 @@ export function SiteFooter() {
             href={site.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-body mt-3 inline-flex items-center gap-2.25 font-semibold text-white hover:text-white/80"
+            className="text-body group mt-3 inline-flex items-center gap-2.25 font-semibold text-white hover:text-white/80"
           >
             {t("mapCta")} <Arrow />
           </a>

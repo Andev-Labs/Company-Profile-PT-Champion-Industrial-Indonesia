@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Arrow } from "@/components/arrow";
+import { CountUp } from "@/components/count-up";
 import { PhotoFrame } from "@/components/photo-frame";
 import { heroPhoto, heroStats } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -37,7 +38,7 @@ export function HeroSection() {
           <div className="flex flex-col gap-3.5 pb-12 sm:flex-row sm:items-center sm:gap-4 lg:pb-18">
             <a
               href="#produk"
-              className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center justify-center gap-2.5 px-7.5 py-4.25 font-semibold text-white sm:justify-start"
+              className="bg-brand text-cta-sm hover:bg-white hover:text-ink group inline-flex items-center justify-center gap-2.5 px-7.5 py-4.25 font-semibold text-white sm:justify-start"
             >
               {t("ctaProducts")} <Arrow />
             </a>
@@ -60,9 +61,11 @@ export function HeroSection() {
           {/* The badge only breaks out of the frame once there is a gutter to
               break out into; on a phone it tucks inside the photo instead. */}
           <p className="bg-brand pointer-events-none absolute top-4 left-0 px-5 py-4 text-white lg:top-9 lg:-left-10 lg:px-7 lg:py-6">
-            <span className="font-display text-stat block leading-none font-bold">
-              44+
-            </span>
+            <CountUp
+              to={44}
+              suffix="+"
+              className="font-display text-stat block leading-none font-bold"
+            />
             <span className="text-eyebrow tracking-caps mt-1 block font-semibold">
               {t("badgeLabel")}
             </span>
@@ -71,7 +74,9 @@ export function HeroSection() {
       </div>
 
       <div className="border-t border-white/10">
-        <dl className="max-w-shell px-shell mx-auto grid grid-cols-2 sm:grid-cols-4">
+        {/* Held back behind the two columns above so the figures start counting
+            as the rest of the hero is settling, not on top of it. */}
+        <dl className="max-w-shell px-shell reveal-in mx-auto grid grid-cols-2 [animation-delay:0.28s] sm:grid-cols-4">
           {/* Two columns on a phone, four from `sm`. The dividers follow the
               column count: a row rule under the first pair only while there
               are two rows, and a column rule everywhere but the last cell. */}
@@ -82,9 +87,18 @@ export function HeroSection() {
             >
               <dt className="sr-only">{t(`stats.${stat.key}`)}</dt>
               <dd>
-                <span className="font-display text-stat-sm block leading-none font-bold text-white">
-                  {stat.value}
-                </span>
+                {"text" in stat ? (
+                  <span className="font-display text-stat-sm block leading-none font-bold text-white">
+                    {stat.text}
+                  </span>
+                ) : (
+                  <CountUp
+                    from={stat.from}
+                    to={stat.to}
+                    suffix={stat.suffix}
+                    className="font-display text-stat-sm block leading-none font-bold text-white"
+                  />
+                )}
                 <span className="text-meta text-fog mt-2 block">
                   {t(`stats.${stat.key}`)}
                 </span>

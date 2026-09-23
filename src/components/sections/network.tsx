@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 
+import { CountUp } from "@/components/count-up";
 import { Eyebrow } from "@/components/eyebrow";
 import { network } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -38,14 +39,15 @@ export function NetworkSection() {
           </p>
         </div>
 
-        <dl className="mb-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-white/10 py-5 lg:mb-12">
+        <dl className="reveal-on-scroll mb-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-white/10 py-5 lg:mb-12">
           {summary.map((entry) => (
             <div key={entry.key}>
               <dt className="sr-only">{t(`summary.${entry.key}`)}</dt>
               <dd className="flex items-baseline gap-2.5">
-                <span className="font-display text-stat-sm text-brand-bright leading-none font-bold">
-                  {entry.value}
-                </span>
+                <CountUp
+                  to={entry.value}
+                  className="font-display text-stat-sm text-brand-bright leading-none font-bold"
+                />
                 <span className="text-meta text-fog">
                   {t(`summary.${entry.key}`)}
                 </span>

@@ -3,6 +3,8 @@ import { useTranslations } from "next-intl";
 import { Eyebrow } from "@/components/eyebrow";
 import { PhotoFrame } from "@/components/photo-frame";
 import { techSteps } from "@/lib/content";
+import { revealLag } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 export function TechnologySection() {
   const t = useTranslations("Technology");
@@ -10,7 +12,7 @@ export function TechnologySection() {
   return (
     <section id="teknologi" className="bg-ink scroll-mt-20 text-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow className="text-brand-bright">{t("eyebrow")}</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading max-w-[620px] font-bold">
@@ -23,8 +25,11 @@ export function TechnologySection() {
         </div>
 
         <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
-          {techSteps.map((step) => (
-            <li key={step.no} className="reveal-on-scroll">
+          {techSteps.map((step, index) => (
+            <li
+              key={step.no}
+              className={cn("group reveal-on-scroll", revealLag(index))}
+            >
               <div className="relative mb-5.5 h-70">
                 <PhotoFrame
                   {...step}

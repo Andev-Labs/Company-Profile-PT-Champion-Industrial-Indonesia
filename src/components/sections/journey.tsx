@@ -1,6 +1,8 @@
 import { useTranslations } from "next-intl";
 
 import { timeline } from "@/lib/content";
+import { revealLag } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 export function JourneySection() {
   const t = useTranslations("Journey");
@@ -8,7 +10,7 @@ export function JourneySection() {
   return (
     <section className="bg-mist border-line border-y">
       <div className="max-w-shell px-shell mx-auto py-16 lg:py-21">
-        <div className="mb-10 flex flex-col items-start gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <h2 className="font-display text-subsection leading-heading tracking-heading text-ink font-bold">
             {t("title")}
           </h2>
@@ -35,10 +37,13 @@ export function JourneySection() {
             className="bg-brand absolute top-2 left-[7px] h-1/4 w-0.5 lg:hidden"
           />
           <ol className="relative grid grid-cols-1 gap-10 lg:grid-cols-4 lg:gap-8">
-            {timeline.map((milestone) => (
+            {timeline.map((milestone, index) => (
               <li
                 key={milestone.step}
-                className="reveal-on-scroll relative pl-9 lg:pl-0"
+                className={cn(
+                  "reveal-on-scroll relative pl-9 lg:pl-0",
+                  revealLag(index),
+                )}
               >
                 <span
                   aria-hidden="true"

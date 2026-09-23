@@ -119,7 +119,7 @@ export function ContactForm() {
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-brand text-body-lg hover:bg-ink mt-7 inline-flex w-full items-center justify-center gap-2.5 px-7.5 py-4.5 font-semibold text-white hover:text-white"
+        className="bg-brand text-body-lg hover:bg-ink group mt-7 inline-flex w-full items-center justify-center gap-2.5 px-7.5 py-4.5 font-semibold text-white hover:text-white"
       >
         <MessageCircle aria-hidden="true" className="size-5 flex-none" />
         {t("submit")} <Arrow />

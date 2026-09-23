@@ -58,9 +58,12 @@ export function MobileNav() {
       <div
         id={panelId}
         hidden={!open}
-        className="bg-ink nav-solid:border-line nav-solid:bg-white absolute inset-x-0 top-full max-h-[calc(100dvh-var(--spacing-nav))] overflow-y-auto border-b border-white/10 lg:hidden"
+        className="bg-ink animate-in fade-in slide-in-from-top-2 duration-200 nav-solid:border-line nav-solid:bg-white absolute inset-x-0 top-full max-h-[calc(100dvh-var(--spacing-nav))] overflow-y-auto border-b border-white/10 lg:hidden"
       >
-        <nav aria-label={t("mainLabel")} className="px-shell flex flex-col pt-2 pb-6">
+        <nav
+          aria-label={t("mainLabel")}
+          className="px-shell flex flex-col pt-2 pb-6"
+        >
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -74,7 +77,7 @@ export function MobileNav() {
           <a
             href="#kontak"
             onClick={() => setOpen(false)}
-            className="bg-brand text-note tracking-hair hover:text-ink nav-solid:hover:bg-ink mt-6 inline-flex min-h-12 items-center justify-center gap-2.25 px-5.5 font-semibold text-white hover:bg-white nav-solid:hover:text-white"
+            className="bg-brand text-note tracking-hair hover:text-ink nav-solid:hover:bg-ink mt-6 inline-flex min-h-12 items-center justify-center gap-2.25 px-5.5 font-semibold text-white hover:bg-white nav-solid:hover:text-white group"
           >
             {t("cta")}
             <Arrow />

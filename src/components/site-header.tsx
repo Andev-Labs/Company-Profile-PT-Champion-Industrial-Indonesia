@@ -51,7 +51,7 @@ export function SiteHeader() {
               button, ink-on-white to the one the rest of the page uses. */}
           <a
             href="#kontak"
-            className="bg-brand text-note tracking-hair hover:text-ink nav-solid:hover:bg-ink inline-flex items-center gap-2.25 px-5.5 py-3.25 font-semibold text-white transition-colors duration-300 hover:bg-white nav-solid:hover:text-white"
+            className="bg-brand text-note tracking-hair hover:text-ink nav-solid:hover:bg-ink inline-flex items-center gap-2.25 px-5.5 py-3.25 font-semibold text-white transition-colors duration-300 hover:bg-white nav-solid:hover:text-white group"
           >
             {t("cta")}
             <Arrow />
@@ -65,6 +65,13 @@ export function SiteHeader() {
           <MobileNav />
         </div>
       </div>
+
+      {/* Reading progress. Purely decorative, and driven by the document
+          scroll rather than by script, so it costs nothing to run. */}
+      <span
+        aria-hidden="true"
+        className="scroll-progress bg-brand absolute inset-x-0 bottom-0 h-0.5 w-full"
+      />
     </SiteHeaderShell>
   );
 }

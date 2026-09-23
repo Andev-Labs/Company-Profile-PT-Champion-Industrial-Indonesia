@@ -169,8 +169,14 @@
      silhouette, so the whole scale hangs off this one value via the `@theme
      inline` block above: controls at `rounded-lg`, photos and cards at
      `rounded-xl`, large panels at `rounded-2xl`. Move it here and the whole
-     site moves with it. */
-  --radius: 0.75rem;
+     site moves with it.
+
+     6px, not the 12px this started at. The larger value softened the page into
+     consumer-app territory, which is the wrong signal for a manufacturer that
+     sells tolerance. This is enough to take the razor edge off a button or an
+     input without the boxes reading as friendly — the corner is a chamfer, not
+     a curve. */
+  --radius: 0.375rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);

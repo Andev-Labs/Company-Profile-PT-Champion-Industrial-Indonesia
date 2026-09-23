@@ -8,6 +8,10 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 
+import {
+  alt as ogImageAlt,
+  size as ogImageSize,
+} from "@/app/opengraph-image";
 import { MotionProvider } from "@/components/motion-provider";
 import { localeMeta, routing } from "@/i18n/routing";
 import { site, siteUrl } from "@/lib/site";
@@ -49,6 +53,19 @@ const localePath = {
   id: "/id",
 } as const;
 
+/**
+ * The branded link-preview card. It is generated at the app root so both
+ * languages share one unprefixed URL, which puts it above this root layout —
+ * Next only attaches `opengraph-image` files automatically from the root
+ * layout down, so it is referenced explicitly here.
+ */
+const ogImage = {
+  url: "/opengraph-image",
+  ...ogImageSize,
+  alt: ogImageAlt,
+  type: "image/png",
+};
+
 export async function generateMetadata(
   props: LayoutProps<"/[locale]">,
 ): Promise<Metadata> {
@@ -56,7 +73,6 @@ export async function generateMetadata(
   if (!hasLocale(routing.locales, locale)) notFound();
 
   const t = await getTranslations({ locale, namespace: "Metadata" });
-  const tHero = await getTranslations({ locale, namespace: "Hero" });
 
   const title = t("title");
   const description = t("description");
@@ -86,20 +102,13 @@ export async function generateMetadata(
       siteName: site.name,
       title,
       description,
-      images: [
-        {
-          url: "/images/hero-facility.jpg",
-          width: 1600,
-          height: 1067,
-          alt: tHero("photoAlt"),
-        },
-      ],
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/hero-facility.jpg"],
+      images: [ogImage],
     },
   };
 }

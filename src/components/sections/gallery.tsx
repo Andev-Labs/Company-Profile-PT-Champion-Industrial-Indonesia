@@ -3,8 +3,8 @@ import { useTranslations } from "next-intl";
 import { Arrow } from "@/components/arrow";
 import { Eyebrow } from "@/components/eyebrow";
 import { PhotoFrame } from "@/components/photo-frame";
+import { Reveal } from "@/components/reveal";
 import { gallery } from "@/lib/content";
-import { revealLag } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export function GallerySection() {
@@ -13,7 +13,7 @@ export function GallerySection() {
   return (
     <section id="galeri" className="bg-ink scroll-mt-20 text-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <Reveal className="mb-10 flex flex-col items-start gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow className="text-brand-bright">{t("eyebrow")}</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading font-bold">
@@ -26,16 +26,17 @@ export function GallerySection() {
           >
             {t("cta")} <Arrow />
           </a>
-        </div>
+        </Reveal>
 
         <ul className="grid auto-rows-[140px] grid-cols-2 gap-3 sm:auto-rows-[190px] sm:gap-4 lg:auto-rows-auto lg:grid-cols-4 lg:grid-rows-[repeat(2,220px)]">
           {gallery.map((item, index) => (
-            <li
+            <Reveal
+              as="li"
               key={item.id}
+              index={index}
               className={cn(
-                "group reveal-on-scroll relative",
+                "group relative",
                 item.wide && "col-span-2",
-                revealLag(index),
               )}
             >
               <PhotoFrame
@@ -47,7 +48,7 @@ export function GallerySection() {
                     : "(min-width: 1024px) 295px, 50vw"
                 }
               />
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

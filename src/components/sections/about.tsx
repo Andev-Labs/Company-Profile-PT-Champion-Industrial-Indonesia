@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { Eyebrow } from "@/components/eyebrow";
 import { PhotoFrame } from "@/components/photo-frame";
+import { Reveal } from "@/components/reveal";
 import { aboutPhoto, aboutPillars } from "@/lib/content";
 
 export function AboutSection() {
@@ -10,7 +11,7 @@ export function AboutSection() {
   return (
     <section id="tentang" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
-        <div className="reveal-on-scroll">
+        <Reveal>
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-7 font-bold">
             {t("title")}
@@ -22,9 +23,9 @@ export function AboutSection() {
               sizes="(min-width: 1024px) 505px, 100vw"
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="reveal-on-scroll lg:pt-13">
+        <Reveal className="lg:pt-13">
           <p className="text-prose leading-prose text-ink-soft mb-5.5 text-pretty">
             {t("paragraph1")}
           </p>
@@ -51,7 +52,7 @@ export function AboutSection() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

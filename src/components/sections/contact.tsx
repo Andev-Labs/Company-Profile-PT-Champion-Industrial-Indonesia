@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 
 import { ContactForm } from "@/components/contact-form";
 import { Eyebrow } from "@/components/eyebrow";
+import { Reveal } from "@/components/reveal";
 
 /**
  * The section is deliberately the enquiry form and nothing else (ANDEV-131).
@@ -15,7 +16,7 @@ export function ContactSection() {
   return (
     <section id="kontak" className="scroll-mt-20 bg-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto grid grid-cols-1 items-start gap-9 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-16">
-        <div className="reveal-on-scroll max-w-[680px] lg:self-center">
+        <Reveal className="max-w-[680px] lg:self-center">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-5 font-bold">
             {t("title")}
@@ -24,11 +25,11 @@ export function ContactSection() {
           <p className="text-field leading-text text-slate mt-5 max-w-[46ch]">
             {t("whatsappNote")}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="reveal-on-scroll border-line border">
+        <Reveal className="border-line border">
           <ContactForm />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -262,20 +262,6 @@
   animation: revealIn 0.8s ease-out both;
 }
 
-/* Scroll-driven entry used for every section below the fold. Browsers without
-   scroll-driven animation support fall back to the document timeline, which
-   simply plays the reveal on load — the end state is identical.
-
-   `--reveal-lag` pushes the window later along the timeline. Cards that share
-   a row cross the viewport edge together, so without it a four-up grid lands
-   as one block; `lib/motion.ts` hands out the per-column values. */
-@utility reveal-on-scroll {
-  animation: revealIn 0.7s ease-out both;
-  animation-timeline: view();
-  animation-range: entry var(--reveal-lag, 0%) cover
-    calc(22% + var(--reveal-lag, 0%));
-}
-
 /* The reading-progress rule in the header. It is hidden unless the scroll
    timeline exists: without one the animation has no progress to report and
    would sit permanently full, reading as a stray brand-coloured border. */
@@ -304,8 +290,7 @@
 
 /* Unlayered, so it wins over the utilities above. */
 @media (prefers-reduced-motion: reduce) {
-  .reveal-in,
-  .reveal-on-scroll {
+  .reveal-in {
     animation: none;
   }
   .scroll-progress {

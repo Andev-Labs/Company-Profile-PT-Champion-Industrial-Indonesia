@@ -8,6 +8,7 @@ import {
   setRequestLocale,
 } from "next-intl/server";
 
+import { MotionProvider } from "@/components/motion-provider";
 import { localeMeta, routing } from "@/i18n/routing";
 import { site, siteUrl } from "@/lib/site";
 import "../globals.css";
@@ -134,7 +135,7 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={clientMessages}>
-          {children}
+          <MotionProvider>{children}</MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

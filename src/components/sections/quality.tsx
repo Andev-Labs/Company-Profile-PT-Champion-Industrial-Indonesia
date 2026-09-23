@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 
 import { Arrow } from "@/components/arrow";
 import { Eyebrow } from "@/components/eyebrow";
+import { Reveal } from "@/components/reveal";
 import { documents, qualitySteps } from "@/lib/content";
 
 export function QualitySection() {
@@ -11,7 +12,7 @@ export function QualitySection() {
   return (
     <section id="mutu" className="bg-mist border-line scroll-mt-20 border-t lg:scroll-mt-24">
       <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-16 pb-12 sm:pt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.78fr)] lg:gap-20 lg:pt-27.5 lg:pb-14">
-        <div className="reveal-on-scroll">
+        <Reveal>
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="font-display text-section leading-display tracking-heading text-ink mb-6.5 font-bold">
             {t("title")}
@@ -31,11 +32,11 @@ export function QualitySection() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
         {/* Placeholder rendering of the quality certificate — swapped for a scan
             of the real document once the company provides it. */}
-        <div className="reveal-on-scroll border-line border bg-white p-6.5">
+        <Reveal className="border-line border bg-white p-6.5">
           <div className="border-brand flex flex-col items-center border px-6 py-6.5 text-center">
             <Image
               src="/images/logo-cmf.png"
@@ -71,11 +72,11 @@ export function QualitySection() {
               <span className="border-line-strong block size-14 flex-none rounded-full border-2 border-dashed" />
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       <div className="max-w-shell px-shell mx-auto pb-16 sm:pb-20 lg:pb-27.5">
-        <div className="reveal-on-scroll bg-ink px-6 py-9 text-white sm:px-10 sm:py-11">
+        <Reveal className="bg-ink px-6 py-9 text-white sm:px-10 sm:py-11">
           <div className="mb-8 flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-15 lg:mb-9">
             <p className="text-label tracking-label text-fog-soft font-semibold">
               {t("documentsHeading")}
@@ -107,7 +108,7 @@ export function QualitySection() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

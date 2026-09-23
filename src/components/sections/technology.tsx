@@ -2,9 +2,8 @@ import { useTranslations } from "next-intl";
 
 import { Eyebrow } from "@/components/eyebrow";
 import { PhotoFrame } from "@/components/photo-frame";
+import { Reveal } from "@/components/reveal";
 import { techSteps } from "@/lib/content";
-import { revealLag } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 export function TechnologySection() {
   const t = useTranslations("Technology");
@@ -12,7 +11,7 @@ export function TechnologySection() {
   return (
     <section id="teknologi" className="bg-ink scroll-mt-20 text-white lg:scroll-mt-24">
       <div className="max-w-shell px-shell py-section mx-auto">
-        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <Reveal className="mb-10 flex flex-col items-start gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <div>
             <Eyebrow className="text-brand-bright">{t("eyebrow")}</Eyebrow>
             <h2 className="font-display text-section leading-display tracking-heading max-w-[620px] font-bold">
@@ -22,13 +21,15 @@ export function TechnologySection() {
           <p className="text-lead-sm leading-text text-fog-soft max-w-[380px] text-pretty">
             {t("intro")}
           </p>
-        </div>
+        </Reveal>
 
         <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {techSteps.map((step, index) => (
-            <li
+            <Reveal
+              as="li"
               key={step.no}
-              className={cn("group reveal-on-scroll", revealLag(index))}
+              index={index}
+              className="group"
             >
               <div className="relative mb-5.5 h-70">
                 <PhotoFrame
@@ -46,7 +47,7 @@ export function TechnologySection() {
               <p className="text-body leading-body text-fog-soft text-pretty">
                 {t(`steps.${step.no}.desc`)}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

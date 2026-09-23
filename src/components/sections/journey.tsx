@@ -1,8 +1,7 @@
 import { useTranslations } from "next-intl";
 
+import { Reveal } from "@/components/reveal";
 import { timeline } from "@/lib/content";
-import { revealLag } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 export function JourneySection() {
   const t = useTranslations("Journey");
@@ -10,12 +9,12 @@ export function JourneySection() {
   return (
     <section className="bg-mist border-line border-y">
       <div className="max-w-shell px-shell mx-auto py-16 lg:py-21">
-        <div className="reveal-on-scroll mb-10 flex flex-col items-start gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
+        <Reveal className="mb-10 flex flex-col items-start gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-15">
           <h2 className="font-display text-subsection leading-heading tracking-heading text-ink font-bold">
             {t("title")}
           </h2>
           <p className="text-field text-slate max-w-[420px]">{t("intro")}</p>
-        </div>
+        </Reveal>
 
         {/* The rail turns with the list: horizontal across four columns on the
             desktop grid, vertical down the left edge once the steps stack. */}
@@ -38,12 +37,11 @@ export function JourneySection() {
           />
           <ol className="relative grid grid-cols-1 gap-10 lg:grid-cols-4 lg:gap-8">
             {timeline.map((milestone, index) => (
-              <li
+              <Reveal
+                as="li"
                 key={milestone.step}
-                className={cn(
-                  "reveal-on-scroll relative pl-9 lg:pl-0",
-                  revealLag(index),
-                )}
+                index={index}
+                className="relative pl-9 lg:pl-0"
               >
                 <span
                   aria-hidden="true"
@@ -63,7 +61,7 @@ export function JourneySection() {
                 <p className="text-body leading-body text-ink-soft text-pretty">
                   {t(`milestones.${milestone.step}.desc`)}
                 </p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>

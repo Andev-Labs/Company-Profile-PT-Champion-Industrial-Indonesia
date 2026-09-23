@@ -15,7 +15,9 @@ export function HeroSection() {
   return (
     <section
       id="atas"
-      className="bg-ink pt-nav lg:pt-nav-lg relative overflow-hidden text-white"
+      // Focus target for the back-to-top button; never a Tab stop itself.
+      tabIndex={-1}
+      className="bg-ink pt-nav lg:pt-nav-lg relative overflow-hidden text-white outline-none"
     >
       <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-24">
         <div className="reveal-in">

@@ -17,6 +17,7 @@ import { NetworkSection } from "@/components/sections/network";
 import { ProductsSection } from "@/components/sections/products";
 import { QualitySection } from "@/components/sections/quality";
 import { TechnologySection } from "@/components/sections/technology";
+import { BackToTop } from "@/components/back-to-top";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { OrganizationJsonLd } from "@/components/structured-data";
@@ -49,6 +50,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <ContactSection />
       </main>
       <SiteFooter />
+      <BackToTop />
     </div>
   );
 }

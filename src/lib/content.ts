@@ -26,12 +26,9 @@ export type NetworkLocation = {
   city: string;
   country: string;
   role: string;
-  /** Sub-label shown under the city name on the map. */
+  /** More specific than `country`; shown where it says something extra. */
   detail: string;
-  /** Plotted on the map through `projectToMap` in `@/lib/map-projection`. */
-  lng: number;
-  lat: number;
-  /** The Indonesian facility, drawn with the heavier marker. */
+  /** The Indonesian facility — the one the section is built around. */
   home?: boolean;
 };
 
@@ -123,8 +120,6 @@ export const network: NetworkLocation[] = [
     country: "Hong Kong",
     role: "Basis awal grup sejak 1982",
     detail: "Hong Kong",
-    lng: 114.17,
-    lat: 22.32,
   },
   {
     id: "shenzhen",
@@ -132,8 +127,6 @@ export const network: NetworkLocation[] = [
     country: "Tiongkok",
     role: "Produksi dan pengembangan",
     detail: "Tiongkok",
-    lng: 114.06,
-    lat: 22.54,
   },
   {
     id: "huizhou",
@@ -141,8 +134,6 @@ export const network: NetworkLocation[] = [
     country: "Tiongkok",
     role: "Produksi skala besar",
     detail: "Tiongkok",
-    lng: 114.42,
-    lat: 23.11,
   },
   {
     id: "vietnam",
@@ -150,8 +141,6 @@ export const network: NetworkLocation[] = [
     country: "Vietnam",
     role: "Manufaktur dan distribusi",
     detail: "Vietnam",
-    lng: 106.66,
-    lat: 10.76,
   },
   {
     id: "indonesia",
@@ -159,8 +148,6 @@ export const network: NetworkLocation[] = [
     country: "Indonesia",
     role: "Fasilitas baru, beroperasi 2026",
     detail: "Tangerang, Indonesia",
-    lng: 106.63,
-    lat: -6.18,
     home: true,
   },
 ];

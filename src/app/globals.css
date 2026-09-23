@@ -248,55 +248,11 @@
   animation-range: entry 0% cover 22%;
 }
 
-/* --- Operations map ------------------------------------------------------ */
-
-/* Halo breathing out of each location marker. Scaled rather than animating the
-   `r` attribute, which older Safari will not animate from CSS. */
-@keyframes mapPulse {
-  from {
-    transform: scale(1);
-    opacity: 0.45;
-  }
-  to {
-    transform: scale(4.2);
-    opacity: 0;
-  }
-}
-
-@utility map-pulse {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: mapPulse 3s ease-out infinite;
-}
-
-/* Offset is two full dash cycles (14 + 12), so the loop has no visible seam. */
-@keyframes mapRouteFlow {
-  to {
-    stroke-dashoffset: -52;
-  }
-}
-
-@utility map-route-flow {
-  animation: mapRouteFlow 2.6s linear infinite;
-}
-
-/* Both are staggered per element with a negative `animation-delay` set in
-   `network-map.tsx`, so the markers read as a network rather than a metronome. */
-
 /* Unlayered, so it wins over the utilities above. */
 @media (prefers-reduced-motion: reduce) {
   .reveal-in,
   .reveal-on-scroll {
     animation: none;
-  }
-  /* The map's ambient motion is decorative; the hover and focus states that
-     carry the actual information keep working without it. */
-  .map-pulse,
-  .map-route-flow {
-    animation: none;
-  }
-  .map-pulse {
-    opacity: 0.35;
   }
   html {
     scroll-behavior: auto;

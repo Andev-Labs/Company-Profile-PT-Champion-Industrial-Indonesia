@@ -374,15 +374,9 @@
     "tagline": "Fastener and precision hardware manufacturing. Part of an industrial group founded in Hong Kong in 1982.",
     "pagesHeading": "PAGES",
     "contactHeading": "CONTACT",
+    "mapHeading": "LOCATION",
+    "mapTitle": "Map showing the location of {name}",
     "mapCta": "Open directions in Google Maps",
-    "hoursHeading": "OPENING HOURS",
-    "hours": {
-      "weekdays": "Monday – Friday",
-      "saturday": "Saturday",
-      "sunday": "Sunday & public holidays"
-    },
-    "closed": "Closed",
-    "timezoneNote": "All times in WIB (GMT+7).",
     "copyright": "© 2026 {name}"
   },
   "NotFound": {

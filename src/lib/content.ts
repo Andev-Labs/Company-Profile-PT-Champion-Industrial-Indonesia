@@ -22,9 +22,17 @@ export type Milestone = {
 };
 
 export type NetworkLocation = {
+  id: string;
   city: string;
   country: string;
   role: string;
+  /** Sub-label shown under the city name on the map. */
+  detail: string;
+  /** Plotted on the map through `projectToMap` in `@/lib/map-projection`. */
+  lng: number;
+  lat: number;
+  /** The Indonesian facility, drawn with the heavier marker. */
+  home?: boolean;
 };
 
 export type Product = Photo & { name: string; desc: string };
@@ -103,15 +111,57 @@ export const timeline: Milestone[] = [
   },
 ];
 
+/**
+ * Order here drives the card row under the map. Coordinates are the real city
+ * centres the mockup's map was plotted from, so the markers land where the
+ * approved artwork put them.
+ */
 export const network: NetworkLocation[] = [
-  { city: "Hong Kong", country: "Hong Kong", role: "Basis awal grup sejak 1982" },
-  { city: "Shenzhen", country: "Tiongkok", role: "Produksi dan pengembangan" },
-  { city: "Huizhou", country: "Tiongkok", role: "Produksi skala besar" },
-  { city: "Vietnam", country: "Vietnam", role: "Manufaktur dan distribusi" },
   {
+    id: "hong-kong",
+    city: "Hong Kong",
+    country: "Hong Kong",
+    role: "Basis awal grup sejak 1982",
+    detail: "Hong Kong",
+    lng: 114.17,
+    lat: 22.32,
+  },
+  {
+    id: "shenzhen",
+    city: "Shenzhen",
+    country: "Tiongkok",
+    role: "Produksi dan pengembangan",
+    detail: "Tiongkok",
+    lng: 114.06,
+    lat: 22.54,
+  },
+  {
+    id: "huizhou",
+    city: "Huizhou",
+    country: "Tiongkok",
+    role: "Produksi skala besar",
+    detail: "Tiongkok",
+    lng: 114.42,
+    lat: 23.11,
+  },
+  {
+    id: "vietnam",
+    city: "Vietnam",
+    country: "Vietnam",
+    role: "Manufaktur dan distribusi",
+    detail: "Vietnam",
+    lng: 106.66,
+    lat: 10.76,
+  },
+  {
+    id: "indonesia",
     city: "Indonesia",
     country: "Indonesia",
     role: "Fasilitas baru, beroperasi 2026",
+    detail: "Tangerang, Indonesia",
+    lng: 106.63,
+    lat: -6.18,
+    home: true,
   },
 ];
 

@@ -63,7 +63,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   locale={locale}
                   hrefLang={localeMeta[locale].htmlLang}
                   aria-label={t("switchTo", { language: t(locale) })}
-                  className="text-slate hover:text-brand flex min-h-6 min-w-6 items-center justify-center"
+                  className="text-slate hover:text-brand flex min-h-6 min-w-6 items-center justify-center rounded-md"
                 >
                   <span aria-hidden="true">{t(`${locale}Short`)}</span>
                 </Link>

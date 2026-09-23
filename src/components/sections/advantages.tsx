@@ -20,7 +20,7 @@ export function AdvantagesSection() {
           </p>
           <a
             href="#kontak"
-            className="bg-ink text-cta-sm hover:bg-brand inline-flex items-center gap-2.5 px-7.5 py-4.25 font-semibold text-white hover:text-white"
+            className="bg-ink text-cta-sm hover:bg-brand inline-flex items-center gap-2.5 rounded-lg px-7.5 py-4.25 font-semibold text-white hover:text-white"
           >
             {t("cta")} <Arrow />
           </a>

@@ -26,7 +26,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="border-line border">
+        <div className="border-line overflow-hidden rounded-2xl border">
           <ContactForm />
         </div>
       </div>

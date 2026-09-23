@@ -47,7 +47,7 @@ export function SiteHeader() {
           ))}
           <a
             href="#kontak"
-            className="bg-brand text-note tracking-hair hover:bg-ink inline-flex items-center gap-2.25 px-5.5 py-3.25 font-semibold text-white hover:text-white"
+            className="bg-brand text-note tracking-hair hover:bg-ink inline-flex items-center gap-2.25 rounded-lg px-5.5 py-3.25 font-semibold text-white hover:text-white"
           >
             {t("cta")}
             <Arrow />

@@ -22,7 +22,7 @@ export function CampaignSection() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-brand text-cta hover:bg-ink inline-flex items-center justify-center gap-3 bg-white px-8.5 py-5 font-bold whitespace-nowrap hover:text-white"
+          className="text-brand text-cta hover:bg-ink inline-flex items-center justify-center gap-3 rounded-lg bg-white px-8.5 py-5 font-bold whitespace-nowrap hover:text-white"
         >
           <MessageCircle aria-hidden="true" className="size-5.25 flex-none" />
           {t("cta")} <Arrow />

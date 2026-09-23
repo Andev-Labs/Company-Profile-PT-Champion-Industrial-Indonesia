@@ -16,7 +16,7 @@ export function IndustriesSection() {
           </h2>
         </div>
 
-        <ul className="bg-line border-line grid grid-cols-1 gap-px border sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="bg-line border-line grid grid-cols-1 gap-px overflow-hidden rounded-xl border sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((no) => (
             <li
               key={no}

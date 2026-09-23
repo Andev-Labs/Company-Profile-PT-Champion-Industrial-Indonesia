@@ -104,7 +104,7 @@ export function SiteFooter() {
           {/* The map is the footer's locator for the address printed beside
               it, so it is lazy-loaded and kept small — it is a landmark, not
               a section of its own. */}
-          <div className="border border-white/10">
+          <div className="overflow-hidden rounded-xl border border-white/10">
             <iframe
               src={site.mapsEmbedUrl}
               title={t("mapTitle", { name: site.name })}

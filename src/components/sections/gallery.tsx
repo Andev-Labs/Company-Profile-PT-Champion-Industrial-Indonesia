@@ -20,7 +20,7 @@ export function GallerySection() {
           </div>
           <a
             href="#kontak"
-            className="text-body inline-flex items-center gap-2.5 border border-white/30 px-6.5 py-3.75 font-semibold whitespace-nowrap text-white hover:border-white hover:bg-white/5 hover:text-white"
+            className="text-body inline-flex items-center gap-2.5 rounded-lg border border-white/30 px-6.5 py-3.75 font-semibold whitespace-nowrap text-white hover:border-white hover:bg-white/5 hover:text-white"
           >
             {t("cta")} <Arrow />
           </a>

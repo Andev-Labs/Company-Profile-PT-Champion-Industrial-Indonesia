@@ -9,7 +9,7 @@ import { contactNeeds, type ContactNeed } from "@/lib/content";
 import { buildWhatsappLink } from "@/lib/site";
 
 const fieldClass =
-  "border-line-strong text-field text-ink focus:border-brand border bg-white px-3.75 py-3.5 outline-none";
+  "border-line-strong text-field text-ink focus:border-brand rounded-lg border bg-white px-3.75 py-3.5 outline-none";
 
 /**
  * The enquiry never hits our server: the fields are composed into a prefilled
@@ -119,7 +119,7 @@ export function ContactForm() {
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-brand text-body-lg hover:bg-ink mt-7 inline-flex w-full items-center justify-center gap-2.5 px-7.5 py-4.5 font-semibold text-white hover:text-white"
+        className="bg-brand text-body-lg hover:bg-ink mt-7 inline-flex w-full items-center justify-center gap-2.5 rounded-lg px-7.5 py-4.5 font-semibold text-white hover:text-white"
       >
         <MessageCircle aria-hidden="true" className="size-5 flex-none" />
         {t("submit")} <Arrow />

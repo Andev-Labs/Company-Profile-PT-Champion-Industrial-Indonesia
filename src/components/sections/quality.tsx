@@ -19,7 +19,7 @@ export function QualitySection() {
           <p className="text-lead leading-text text-ink-soft mb-10 max-w-[560px] text-pretty">
             {t("intro")}
           </p>
-          <ul className="bg-line border-line grid grid-cols-1 gap-px border sm:grid-cols-3">
+          <ul className="bg-line border-line grid grid-cols-1 gap-px overflow-hidden rounded-xl border sm:grid-cols-3">
             {qualitySteps.map((step) => (
               <li key={step} className="bg-white px-6 py-7">
                 <h3 className="font-display text-body-lg text-ink mb-2.25 font-bold">
@@ -35,8 +35,8 @@ export function QualitySection() {
 
         {/* Placeholder rendering of the quality certificate — swapped for a scan
             of the real document once the company provides it. */}
-        <div className="border-line border bg-white p-6.5">
-          <div className="border-brand flex flex-col items-center border px-6 py-6.5 text-center">
+        <div className="border-line rounded-2xl border bg-white p-6.5">
+          <div className="border-brand flex flex-col items-center rounded-xl border px-6 py-6.5 text-center">
             <Image
               src="/images/logo-cmf.png"
               alt=""
@@ -54,9 +54,9 @@ export function QualitySection() {
               aria-hidden="true"
               className="mb-6.5 flex w-full flex-col gap-2.25"
             >
-              <span className="bg-wash block h-2" />
-              <span className="bg-wash mx-auto block h-2 w-[88%]" />
-              <span className="bg-wash mx-auto block h-2 w-[70%]" />
+              <span className="bg-wash block h-2 rounded-full" />
+              <span className="bg-wash mx-auto block h-2 w-[88%] rounded-full" />
+              <span className="bg-wash mx-auto block h-2 w-[70%] rounded-full" />
             </div>
             <div
               aria-hidden="true"
@@ -75,14 +75,14 @@ export function QualitySection() {
       </div>
 
       <div className="max-w-shell px-shell mx-auto pb-16 sm:pb-20 lg:pb-27.5">
-        <div className="bg-ink px-6 py-9 text-white sm:px-10 sm:py-11">
+        <div className="bg-ink rounded-2xl px-6 py-9 text-white sm:px-10 sm:py-11">
           <div className="mb-8 flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-15 lg:mb-9">
             <p className="text-label tracking-label text-fog-soft font-semibold">
               {t("documentsHeading")}
             </p>
             <a
               href="#kontak"
-              className="text-body inline-flex items-center gap-2.5 border border-white/30 px-6 py-3.5 font-semibold whitespace-nowrap text-white hover:border-white hover:bg-white/5 hover:text-white"
+              className="text-body inline-flex items-center gap-2.5 rounded-lg border border-white/30 px-6 py-3.5 font-semibold whitespace-nowrap text-white hover:border-white hover:bg-white/5 hover:text-white"
             >
               {t("documentsCta")} <Arrow />
             </a>

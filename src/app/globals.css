@@ -165,7 +165,12 @@
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0rem;
+  /* Corner radius. The mockup was drawn square; ANDEV-132 asked for a softer
+     silhouette, so the whole scale hangs off this one value via the `@theme
+     inline` block above: controls at `rounded-lg`, photos and cards at
+     `rounded-xl`, large panels at `rounded-2xl`. Move it here and the whole
+     site moves with it. */
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);

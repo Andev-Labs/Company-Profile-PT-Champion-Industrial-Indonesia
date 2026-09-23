@@ -27,7 +27,7 @@ export default function NotFound() {
       </h1>
       <Link
         href="/"
-        className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center gap-2.5 px-7.5 py-4.25 font-semibold text-white"
+        className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center gap-2.5 rounded-lg px-7.5 py-4.25 font-semibold text-white"
       >
         {t("cta")} <Arrow />
       </Link>

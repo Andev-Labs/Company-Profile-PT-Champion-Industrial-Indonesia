@@ -12,7 +12,7 @@ export function HeroSection() {
     <section id="atas" className="bg-ink relative overflow-hidden text-white">
       <div className="max-w-shell px-shell mx-auto grid grid-cols-1 items-start gap-12 pt-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16 lg:pt-24">
         <div className="reveal-in">
-          <p className="text-eyebrow tracking-label text-line-soft mb-7 inline-flex items-center gap-3 border border-white/20 px-4 py-2.25 font-semibold lg:mb-8.5">
+          <p className="text-eyebrow tracking-label text-line-soft mb-7 inline-flex items-center gap-3 rounded-full border border-white/20 px-4 py-2.25 font-semibold lg:mb-8.5">
             <span
               aria-hidden="true"
               className="bg-brand size-1.75 rounded-full"
@@ -31,13 +31,13 @@ export function HeroSection() {
           <div className="flex flex-col gap-3.5 pb-12 sm:flex-row sm:items-center sm:gap-4 lg:pb-18">
             <a
               href="#produk"
-              className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center justify-center gap-2.5 px-7.5 py-4.25 font-semibold text-white sm:justify-start"
+              className="bg-brand text-cta-sm hover:bg-white hover:text-ink inline-flex items-center justify-center gap-2.5 rounded-lg px-7.5 py-4.25 font-semibold text-white sm:justify-start"
             >
               {t("ctaProducts")} <Arrow />
             </a>
             <a
               href="#kontak"
-              className="text-cta-sm inline-flex items-center justify-center gap-2.5 border border-white/30 px-7.5 py-4.25 font-semibold text-white hover:border-white hover:bg-white/5 hover:text-white sm:justify-start"
+              className="text-cta-sm inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 px-7.5 py-4.25 font-semibold text-white hover:border-white hover:bg-white/5 hover:text-white sm:justify-start"
             >
               {t("ctaQuote")}
             </a>
@@ -53,7 +53,7 @@ export function HeroSection() {
           />
           {/* The badge only breaks out of the frame once there is a gutter to
               break out into; on a phone it tucks inside the photo instead. */}
-          <p className="bg-brand pointer-events-none absolute top-4 left-0 px-5 py-4 text-white lg:top-9 lg:-left-10 lg:px-7 lg:py-6">
+          <p className="bg-brand pointer-events-none absolute top-4 left-0 rounded-xl px-5 py-4 text-white lg:top-9 lg:-left-10 lg:px-7 lg:py-6">
             <span className="font-display text-stat block leading-none font-bold">
               44+
             </span>

@@ -62,7 +62,7 @@ export function NetworkSection() {
             are the grid's own background showing through the gaps, so fading
             the cells individually would flash that pale background through
             every card on the way in. */}
-        <ul className="reveal-on-scroll grid grid-cols-1 gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="reveal-on-scroll grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
           {network.map((location) => (
             <li
               key={location.id}

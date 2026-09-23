@@ -39,7 +39,7 @@ export function AboutSection() {
             </p>
           </blockquote>
 
-          <ul className="bg-line grid grid-cols-1 gap-px sm:grid-cols-3">
+          <ul className="bg-line grid grid-cols-1 gap-px overflow-hidden rounded-xl sm:grid-cols-3">
             {aboutPillars.map((pillar) => (
               <li key={pillar} className="bg-white px-5.5 py-6">
                 <h3 className="font-display text-ink mb-2 text-[15px] font-bold">

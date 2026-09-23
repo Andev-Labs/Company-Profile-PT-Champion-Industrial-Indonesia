@@ -42,7 +42,7 @@ export function MobileNav() {
         aria-controls={panelId}
         aria-label={open ? t("closeMenu") : t("openMenu")}
         onClick={() => setOpen((current) => !current)}
-        className="text-ink hover:text-brand -mr-2.5 inline-flex size-11 flex-none items-center justify-center lg:hidden"
+        className="text-ink hover:text-brand -mr-2.5 inline-flex size-11 flex-none items-center justify-center rounded-lg lg:hidden"
       >
         {open ? (
           <X aria-hidden="true" className="size-6" />
@@ -72,7 +72,7 @@ export function MobileNav() {
           <a
             href="#kontak"
             onClick={() => setOpen(false)}
-            className="bg-brand text-note tracking-hair hover:bg-ink mt-6 inline-flex min-h-12 items-center justify-center gap-2.25 px-5.5 font-semibold text-white hover:text-white"
+            className="bg-brand text-note tracking-hair hover:bg-ink mt-6 inline-flex min-h-12 items-center justify-center gap-2.25 rounded-lg px-5.5 font-semibold text-white hover:text-white"
           >
             {t("cta")}
             <Arrow />

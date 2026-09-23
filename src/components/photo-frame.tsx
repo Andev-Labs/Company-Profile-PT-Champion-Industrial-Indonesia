@@ -27,7 +27,7 @@ export function PhotoFrame({
   className,
 }: PhotoFrameProps) {
   return (
-    <figure className={cn("absolute inset-0 overflow-hidden", className)}>
+    <figure className={cn("absolute inset-0 overflow-hidden rounded-xl", className)}>
       <Image
         src={src}
         alt={alt}
@@ -41,7 +41,7 @@ export function PhotoFrame({
           href={creditHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-ink/70 text-micro text-white inline-block px-1.5 py-0.5 hover:bg-ink/90 hover:text-white"
+          className="bg-ink/70 text-micro text-white inline-block rounded-md px-1.5 py-0.5 hover:bg-ink/90 hover:text-white"
         >
           {credit}
         </a>

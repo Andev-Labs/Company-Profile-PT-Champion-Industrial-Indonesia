@@ -20,7 +20,7 @@ export function ProductsSection() {
           </div>
           <a
             href="#kontak"
-            className="border-line-strong text-ink text-body hover:border-brand hover:text-brand inline-flex items-center gap-2.5 border px-6.5 py-3.75 font-semibold whitespace-nowrap"
+            className="border-line-strong text-ink text-body hover:border-brand hover:text-brand inline-flex items-center gap-2.5 rounded-lg border px-6.5 py-3.75 font-semibold whitespace-nowrap"
           >
             {t("cta")} <Arrow />
           </a>
@@ -29,7 +29,7 @@ export function ProductsSection() {
         <ul className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
           {products.map((product) => (
             <li key={product.id} className="reveal-on-scroll">
-              <div className="bg-mist relative mb-5.5 h-62.5">
+              <div className="bg-mist relative mb-5.5 h-62.5 rounded-xl">
                 <PhotoFrame
                   {...product}
                   alt={t(`items.${product.id}.alt`)}
@@ -46,7 +46,7 @@ export function ProductsSection() {
           ))}
         </ul>
 
-        <ul className="bg-line border-line mt-14 grid grid-cols-1 gap-px border sm:grid-cols-2 lg:mt-18 lg:grid-cols-4">
+        <ul className="bg-line border-line mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-xl border sm:grid-cols-2 lg:mt-18 lg:grid-cols-4">
           {services.map((no) => (
             <li key={no} className="hover:bg-mist bg-white px-7 py-8">
               <p className="font-display text-caption text-brand mb-3.5 font-bold">

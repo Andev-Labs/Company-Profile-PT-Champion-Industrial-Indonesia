@@ -11,11 +11,22 @@
 
 /**
  * Production origin. The live domain has not been confirmed on the issue yet,
- * so it is overridable without a code change and falls back to the placeholder
- * below. Set NEXT_PUBLIC_SITE_URL before deploying.
+ * so it is resolved in order of intent:
+ *
+ * 1. `NEXT_PUBLIC_SITE_URL` — set explicitly once the real domain is live.
+ * 2. `VERCEL_PROJECT_PRODUCTION_URL` — the project's production domain, which
+ *    Vercel injects on every build. Without it, absolute URLs such as
+ *    `og:image` pointed at the unregistered placeholder below, so link
+ *    previews in WhatsApp and other apps had no image to fetch (ANDEV-137).
+ * 3. The placeholder, for local builds outside Vercel.
  */
+const vercelProductionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.championindustrial.co.id";
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (vercelProductionHost
+    ? `https://${vercelProductionHost}`
+    : "https://www.championindustrial.co.id");
 
 export const whatsappNumber = "628135207992";
 export const whatsappDisplay = "0813 5207 992";
